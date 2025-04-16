@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@capacitor/splash-screen';
+import { LocalizationService } from './core/services/localization.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +14,12 @@ export class AppComponent {
   /**
    * Constructor
    * @param platform platform     Platform.
+   * @param localizationService   Localization Service.
    */
   constructor(
-    private platform: Platform
+    private platform: Platform,
+    private localizationService: LocalizationService,
+    private storage: Storage
   ) {
     this.initializeApp();
   }
@@ -22,6 +27,15 @@ export class AppComponent {
   public initializeApp() {
     this.platform.ready().then(async () => {
       await SplashScreen.hide();
+      this.localizationService.initializeLocalization();
     });
+
+    this.storage.get('initial_key').then((res => {
+      if (res == null) {
+        //
+      } else {
+        //
+      }
+    }));
   }
 }
