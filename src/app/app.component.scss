@@ -1,0 +1,15 @@
+/* Change color of active page */
+.menu-active-item {
+    ion-icon {
+        color: var(--ion-color-primary) !important;
+    }
+
+    ion-label {
+        color: var(--ion-color-primary) !important;
+    }
+}
+
+/* Current Not Available text */
+.no-games-available {
+    color: #b8b8b8;
+}
