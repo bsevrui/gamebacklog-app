@@ -13,6 +13,7 @@ export class AppComponent {
   /**
    * Constructor
    * @param platform platform     Platform.
+   * @param translate translate   Translate Service.
    */
   constructor(
     private platform: Platform,
