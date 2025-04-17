@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@capacitor/splash-screen';
-import { TranslateService } from '@ngx-translate/core';
+import { LocalizationService } from './core/services/localization.service';
 
 @Component({
   selector: 'app-root',
@@ -13,18 +13,16 @@ export class AppComponent {
   /**
    * Constructor
    * @param platform platform     Platform.
-   * @param translate translate   Translate Service.
    */
   constructor(
     private platform: Platform,
-    private translate: TranslateService
+    private localizationService: LocalizationService
   ) {
     this.initializeApp();
   }
 
   public initializeApp() {
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.localizationService.initializeLocalization();
     this.platform.ready().then(async () => {
       await SplashScreen.hide();
     });
