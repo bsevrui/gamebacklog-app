@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Tab 1</ion-title>
+    <ion-title>{{ 'TAB_HOME' | translate }}</ion-title>
   </ion-toolbar>
   <ion-toolbar no-border-top>
     <ion-segment [scrollable]="true" value="recentlyAdded">
@@ -8,10 +8,10 @@
         <ion-label>{{ 'TITLE_RECENTLYADDED' | translate }}</ion-label>
       </ion-segment-button>
       <ion-segment-button value="topRated" content-id="topRated">
-        <ion-label>Mejor Valorados</ion-label>
+        <ion-label>{{ 'TITLE_TOPRATED' | translate }}</ion-label>
       </ion-segment-button>
       <ion-segment-button value="mostPopular" content-id="mostPopular">
-        <ion-label>Más Populares</ion-label>
+        <ion-label>{{ 'TITLE_MOSTPOPULAR' | translate }}</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
