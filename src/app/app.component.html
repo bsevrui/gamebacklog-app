@@ -1,3 +1,35 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="ion-text-center">{{ 'TITLE_MENU' | translate }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-list-header>{{ 'TITLE_PAGES' | translate }}</ion-list-header>
+          <ion-item button *ngFor="let p of pagesPages" lines="none" routerDirection="root" [routerLink]="[p.path]" detail="false" routerLinkActive="selected">
+            <ion-icon [name]="p.icon" slot="start"></ion-icon>
+            <ion-label>{{ p.title | translate }}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'TITLE_TABS' | translate }}</ion-list-header>
+          <ion-item button *ngFor="let p of tabsPages" lines="none" routerDirection="root" [routerLink]="[p.path]" detail="false" routerLinkActive="selected">
+            <ion-icon [name]="p.icon" slot="start"></ion-icon>
+            <ion-label>{{ p.title | translate }}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'TITLE_APP' | translate }}</ion-list-header>
+          <ion-item button *ngFor="let p of appPages" lines="none" routerDirection="root" [routerLink]="[p.path]" detail="false" routerLinkActive="selected">
+            <ion-icon [name]="p.icon" slot="start"></ion-icon>
+            <ion-label>{{ p.title | translate }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

@@ -1,35 +1,4 @@
-<ion-menu contentId="mainContent">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title class="ion-text-center">{{ 'TITLE_MENU' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-list-header>{{ 'TITLE_PAGES' | translate }}</ion-list-header>
-      <ion-item button *ngFor="let p of pagesPages" lines="none">
-        <ion-icon [name]="p.icon" slot="start"></ion-icon>
-        <ion-label>{{ p.title | translate }}</ion-label>
-      </ion-item>
-    </ion-list>
-    <ion-list>
-      <ion-list-header>{{ 'TITLE_TABS' | translate }}</ion-list-header>
-      <ion-item button *ngFor="let p of tabsPages" lines="none">
-        <ion-icon [name]="p.icon" slot="start"></ion-icon>
-        <ion-label>{{ p.title | translate }}</ion-label>
-      </ion-item>
-    </ion-list>
-    <ion-list>
-      <ion-list-header>{{ 'TITLE_APP' | translate }}</ion-list-header>
-      <ion-item button *ngFor="let p of appPages" lines="none">
-        <ion-icon [name]="p.icon" slot="start"></ion-icon>
-        <ion-label>{{ p.title | translate }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<div class="ion-page" id="mainContent">
+<div class="ion-page" id="main-content">
   <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-buttons slot="start">
