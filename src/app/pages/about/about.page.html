@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'PAGE_ABOUT' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item button lines="full">
+    <ion-label>{{ 'FAIRUSE_TITLE' | translate }}</ion-label>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEMODEL' | translate }}</ion-label>
+    <ion-label slot="end" class="ion-text-wrap">{{ deviceModel$ }}</ion-label>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEUUID' | translate }}</ion-label>
+    <ion-label slot="end" class="ion-text-wrap">{{ deviceUUID$ }}</ion-label>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEOSVERSION' | translate }}</ion-label>
+    <ion-label slot="end" class="ion-text-wrap">{{ deviceOS$ }}</ion-label>
+  </ion-item>
+</ion-content>
