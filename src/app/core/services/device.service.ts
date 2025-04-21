@@ -17,6 +17,10 @@ export const PLATFORM_DEVICE = {
 })
 export class DeviceService {
 
+  /**
+   * Constructor
+   * @param platform  Platform
+   */
   constructor(
     private platform: Platform,
   ) {

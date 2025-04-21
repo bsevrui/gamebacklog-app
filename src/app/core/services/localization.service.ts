@@ -7,6 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class LocalizationService {
 
+  /**
+   * Constructor
+   * @param translateService Translate Service
+   */
   constructor(
     public translateService: TranslateService,
   ) {}
