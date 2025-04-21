@@ -84,6 +84,8 @@ export class DeviceService {
       } else {
         return String(PLATFORM_DEVICE.pwa).toLowerCase();
       }
+    } else {
+      return "undefined";
     }
   }
 
