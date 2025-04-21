@@ -48,7 +48,6 @@ export class AppComponent {
   
   /* Pages on 3rd Block 'App' */
   appPages: MenuPage[] = [
-    { title: 'PAGE_SETTINGS', name: '', icon: 'settings-sharp', path: '' },
     { title: 'PAGE_ABOUT', name: '', icon: 'information-circle', path: '/about' }
   ];
 
