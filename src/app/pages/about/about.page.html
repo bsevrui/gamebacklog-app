@@ -1,23 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>{{ 'PAGE_ABOUT' | translate }}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="mainContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="ion-text-center">{{ 'TITLE_MENU' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>{{ 'TITLE_PAGES' | translate }}</ion-list-header>
+      <ion-item button *ngFor="let p of pagesPages" lines="none">
+        <ion-icon [name]="p.icon" slot="start"></ion-icon>
+        <ion-label>{{ p.title | translate }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header>{{ 'TITLE_TABS' | translate }}</ion-list-header>
+      <ion-item button *ngFor="let p of tabsPages" lines="none">
+        <ion-icon [name]="p.icon" slot="start"></ion-icon>
+        <ion-label>{{ p.title | translate }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-list-header>{{ 'TITLE_APP' | translate }}</ion-list-header>
+      <ion-item button *ngFor="let p of appPages" lines="none">
+        <ion-icon [name]="p.icon" slot="start"></ion-icon>
+        <ion-label>{{ p.title | translate }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-<ion-content>
-  <ion-item button lines="full" [routerLink]="['/', 'fair-use']" routerDirection="forward">
-    <ion-label>{{ 'TITLE_FAIRUSE' | translate }}</ion-label>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEMODEL' | translate }}</ion-label>
-    <ion-label slot="end" class="ion-text-wrap">{{ deviceModel$ }}</ion-label>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEUUID' | translate }}</ion-label>
-    <ion-label slot="end" class="ion-text-wrap">{{ deviceUUID$ }}</ion-label>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEOSVERSION' | translate }}</ion-label>
-    <ion-label slot="end" class="ion-text-wrap">{{ deviceOS$ }}</ion-label>
-  </ion-item>
-</ion-content>
+<div class="ion-page" id="mainContent">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ 'PAGE_ABOUT' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-item button lines="full" [routerLink]="['/', 'fair-use']" routerDirection="forward">
+      <ion-label>{{ 'TITLE_FAIRUSE' | translate }}</ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEMODEL' | translate }}</ion-label>
+      <ion-label slot="end" class="ion-text-wrap">{{ deviceModel$ }}</ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEUUID' | translate }}</ion-label>
+      <ion-label slot="end" class="ion-text-wrap">{{ deviceUUID$ }}</ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label slot="start" class="ion-text-wrap">{{ 'LABEL_DEVICEOSVERSION' | translate }}</ion-label>
+      <ion-label slot="end" class="ion-text-wrap">{{ deviceOS$ }}</ion-label>
+    </ion-item>
+  </ion-content>
+</div>
