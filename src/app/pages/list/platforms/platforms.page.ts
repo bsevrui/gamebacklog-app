@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-platforms',
   templateUrl: './platforms.page.html',
   styleUrls: ['./platforms.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonMenuButton, TranslateModule]
 })
 export class PlatformsPage implements OnInit {
+  /* Flag for the limit of platforms load on each interaction */
+  limit: number = 15;
+  /* Flag for the start of the array */
+  start: number = 0;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewDidEnter() {
+    this.start = 0;
   }
-
 }
