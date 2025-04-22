@@ -43,7 +43,7 @@ export class AppComponent {
    tabsPages: MenuPage[] = [
     { title: 'TAB_HOME', name: '', icon: 'home', path: '/tabs/home' },
     { title: 'TAB_USER_GAMES', name: '', icon: 'list-sharp', path: '' },
-    { title: 'TAB_PROFILE', name: '', icon: 'person', path: '' }
+    { title: 'TAB_PROFILE', name: '', icon: 'person', path: '/tabs/profile' }
   ];
   
   /* Pages on 3rd Block 'App' */
