@@ -7,7 +7,7 @@ import { DeviceService } from './core/services/device.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle } from 'ionicons/icons';
-import { MenuPage } from './core/models/menu-page';
+import { MenuPage } from './core/interfaces/menu-page';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 
