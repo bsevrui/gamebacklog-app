@@ -1,8 +1,8 @@
 {
   "name": "gamebacklog-app",
-  "version": "0.0.1",
+  "version": "1.0.25.4.22",
   "author": "Borja Sevila",
-  "homepage": "",
+  "homepage": "https://www.linkedin.com/in/borjasevillaruiz",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
