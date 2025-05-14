@@ -23,9 +23,7 @@ export class DeviceService {
    */
   constructor(
     private platform: Platform,
-  ) {
-    this._setup();
-  }
+  ) {}
 
   /**
    * Is Device.
@@ -161,16 +159,4 @@ export class DeviceService {
     });
     return promise;
   }
-
-  /**
-   * Setup
-   * @returns void.
-   */
-  private _setup(): void {}
-
-  /**
-   * Restart App.
-   * @returns void.
-   */
-  public restartApp(): void {}
 }
