@@ -3,9 +3,9 @@ export interface user {
     email: string;
     username: string;
     password: string;
-    birthdate: Date;
     registrationdate: Date;
+    birthdate: Date;
     first_name?: string;
-    profilepicture?: string;
     last_name?: string;
+    profilepicture?: string;
 }
