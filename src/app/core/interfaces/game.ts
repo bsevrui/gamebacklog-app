@@ -1,6 +1,9 @@
+import { Genre } from "./genre";
+
 export interface Game {
-    idgame: number;
+    id: number;
     title: string;
     type: string;
-    cover?: string;
+    genres: Genre[] | null;
+    cover?: string | null;
 }

@@ -1,11 +1,11 @@
 export interface User {
-    iduser: number;
+    id: number;
     email: string;
     username: string;
     password: string;
-    registrationdate: Date;
+    registrationDate: Date;
     birthdate: Date;
-    first_name?: string;
-    last_name?: string;
-    profilepicture?: string;
+    first_name?: string | null;
+    last_name?: string | null;
+    profilePicture?: string | null;
 }

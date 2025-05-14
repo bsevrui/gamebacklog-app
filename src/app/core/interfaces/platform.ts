@@ -1,7 +1,7 @@
 export interface Platform {
-    idplatform: number;
-    namplatform: string;
-    platformrelease: Date;
-    detail?: string;
-    platformpicture?: string;
+    id: number;
+    name: string;
+    releaseDate: Date;
+    detail?: string | null;
+    picture?: string | null;
 }

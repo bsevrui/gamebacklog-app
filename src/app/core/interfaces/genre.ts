@@ -1,5 +1,5 @@
 export interface Genre {
-    idgenre: number;
-    genre: string;
-    descriptiongenre?: string;
+    id: number;
+    name: string;
+    description?: string | null;
 }
