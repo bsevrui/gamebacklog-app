@@ -83,7 +83,7 @@ export class DeviceService {
         return String(PLATFORM_DEVICE.pwa).toLowerCase();
       }
     } else {
-      return "undefined";
+      return "PWA/undefined";
     }
   }
 
@@ -98,7 +98,7 @@ export class DeviceService {
       });
       return OSVersion;
     } else {
-      return "OS PWA".toLowerCase();
+      return "PWA";
     }
   }
 
@@ -113,7 +113,7 @@ export class DeviceService {
       });
       return model;
     } else {
-      return "PWA".toLowerCase();
+      return "PWA";
     }
   }
 
