@@ -1,4 +1,4 @@
-export interface platform {
+export interface Platform {
     idplatform: number;
     namplatform: string;
     platformrelease: Date;

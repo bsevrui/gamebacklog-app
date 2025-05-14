@@ -1,4 +1,4 @@
-export interface game {
+export interface Game {
     idgame: number;
     title: string;
     type: string;
