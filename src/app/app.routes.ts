@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { aboutRoutes } from './pages/about/about.route';
+import { authRoutes } from './pages/auth/auth.route';
 
 export const routes: Routes = [
   {
@@ -9,6 +10,10 @@ export const routes: Routes = [
   {
     path: 'about',
     children: aboutRoutes,
+  },
+  {
+    path: 'auth',
+    children: authRoutes,
   },
   {
     path: 'games',
@@ -21,5 +26,5 @@ export const routes: Routes = [
   {
     path: 'genres',
     loadComponent: () => import('./pages/list/genres/genres.page').then( m => m.GenresPage)
-  },
+  }
 ];
