@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, InfiniteScrollCustomEvent, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonList, IonLabel } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { AccessProviders } from 'src/app/core/providers/access-providerl';
 import { Genre } from 'src/app/core/interfaces/genre';
 
 @Component({
@@ -26,42 +25,12 @@ export class GenresPage implements OnInit {
    * Constructor.
    * @param accessProvider accessProvider   Access Provider.
    */
-  constructor(private accessProvider: AccessProviders) {}
+  constructor() {}
 
   ngOnInit() {}
 
   ionViewDidEnter() {
     this.start = 0;
     this.genres = [];
-    this.getGenres();
-    console.log(this.genres);
-  }
-
-  /**
-   * Get the genres on the db
-   * @returns push data on genres' array
-   */
-  async getGenres() {
-    return new Promise(resolve => {
-      let body = {
-        task: 'get_genres',
-        start: this.start,
-        limit: this.limit
-      }
-
-      this.accessProvider.postData(body, 'list.php').subscribe((res:any)=>{
-        for (let datas of res.result) {
-          this.genres?.push(datas);
-        }
-        resolve(true);
-      });
-    });
-  }
-
-  onIonInfinite(event: InfiniteScrollCustomEvent) {
-    this.getGenres();
-    setTimeout(() => {
-      event.target.complete();
-    }, 500);
   }
 }
