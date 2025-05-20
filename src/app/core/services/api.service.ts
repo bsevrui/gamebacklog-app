@@ -16,23 +16,23 @@ export class ApiService {
    * Games
    * @returns games on db
    */
-  getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(environment.apiBaseUrl+'games');
+  getGames(): Observable<Game []> {
+    return this.http.get<Game []>(environment.apiBaseUrl+'games');
   }
   
   /**
    * Platforms
    * @returns platforms on db
    */
-  getPlatforms(): Observable<Platform[]> {
-    return this.http.get<Platform[]>(environment.apiBaseUrl+'platforms');
+  getPlatforms(): Observable<Platform []> {
+    return this.http.get<Platform []>(environment.apiBaseUrl+'platforms');
   }
   
   /**
    * Genres
    * @returns genres on db
    */
-  getGenres(): Observable<Genre[]> {
-    return this.http.get<Genre[]>(environment.apiBaseUrl+'genres');
+  getGenres(): Observable<Genre []> {
+    return this.http.get<Genre []>(environment.apiBaseUrl+'genres');
   }
 }
