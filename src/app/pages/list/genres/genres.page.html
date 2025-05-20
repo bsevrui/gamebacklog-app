@@ -9,10 +9,13 @@
   </ion-header>
   
   <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">genres</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <ion-list>
+      <ion-item button *ngFor="let genre of genres" lines="full">
+        <ion-label>
+          <h3>{{ genre.name }}</h3>
+          <p class="ion-text-wrap" *ngIf="genre.description != null">{{ genre.description }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </div>
