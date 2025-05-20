@@ -18,6 +18,10 @@ export class GenresPage implements OnInit {
   /* Flag for the genres' array */
   genres: Genre[] = [];
 
+  /**
+   * Constructor
+   * @param apiService    API Service
+   */
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
