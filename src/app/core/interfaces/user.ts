@@ -5,7 +5,7 @@ export interface User {
     password: string;
     registrationDate: Date;
     birthdate: Date;
-    first_name?: string | null;
-    last_name?: string | null;
-    profilePicture?: string | null;
+    first_name?: string;
+    last_name?: string;
+    profilePicture?: string;
 }
