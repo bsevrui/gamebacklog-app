@@ -1,20 +1,23 @@
 import { Routes } from "@angular/router";
+import { gamesRoutes } from "./games/games.routes";
+import { genresRoutes } from "./genres/genres.routes";
+import { platformsRoutes } from "./platforms/platforms.routes";
 
 export const listRoutes: Routes = [
     {
         path: '',
-        loadComponent: () => import('./games/games.page').then(m => m.GamesPage),
+        children: gamesRoutes,
     },
     {
         path: 'games',
-        loadComponent: () => import('./games/games.page').then(m => m.GamesPage),
+        children: gamesRoutes,
     },
     {
         path: 'platforms',
-        loadComponent: () => import('./platforms/platforms.page').then(m => m.PlatformsPage),
+        children: platformsRoutes,
     },
     {
         path: 'genres',
-        loadComponent: () => import('./genres/genres.page').then(m => m.GenresPage),
+        children: genresRoutes,
     }
 ];
