@@ -28,6 +28,9 @@ export class GenresPage implements OnInit {
     this.loadData();
   }
 
+  /**
+   * Loads genres from db
+   */
   loadData() {
     this.apiService.getGenres().subscribe(
       (data) => {
