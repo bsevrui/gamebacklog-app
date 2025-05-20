@@ -11,6 +11,10 @@
   <ion-content [fullscreen]="true">
     <ion-list>
       <ion-item button lines="full" *ngFor="let platform of platforms">
+        <ion-thumbnail slot="start">
+          <img [alt]="platform.name" [src]="platform.picture" *ngIf="platform.picture != null">
+          <img alt="img not available" src="assets/img/na.png" *ngIf="platform.picture == null">
+        </ion-thumbnail>
         <ion-label>
           <h3>{{ platform.name }}</h3>
           <p class="ion-text-wrap" *ngIf="platform.detail != null">{{ platform.detail }}</p>
