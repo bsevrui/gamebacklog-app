@@ -34,9 +34,9 @@ export class AppComponent {
 
   /* Pages on 1st Block 'Pages' */
     pagesPages: MenuPage[] = [
-      { title: 'PAGE_GAMES', name: '', icon: 'game-controller', path: '/games'},
-      { title: 'PAGE_PLATFORMS', name: '', icon: 'game-controller-sharp', path: '/platforms'},
-      { title: 'PAGE_GENRES', name: '', icon: 'pricetag', path: '/genres'}
+      { title: 'PAGE_GAMES', name: '', icon: 'game-controller', path: '/list/games'},
+      { title: 'PAGE_PLATFORMS', name: '', icon: 'game-controller-sharp', path: '/list/platforms'},
+      { title: 'PAGE_GENRES', name: '', icon: 'pricetag', path: '/list/genres'}
     ];
   
   /* Pages on 2nd Block 'Tabs' */
