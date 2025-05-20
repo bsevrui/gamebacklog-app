@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { aboutRoutes } from './pages/about/about.route';
 
 export const routes: Routes = [
   {
@@ -7,11 +8,7 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadComponent: () => import('./pages/about/about.page').then( m => m.AboutPage)
-  },
-  {
-    path: 'fair-use',
-    loadComponent: () => import('./pages/about/fair-use/fair-use.page').then( m => m.FairUsePage)
+    children: aboutRoutes,
   },
   {
     path: 'games',
