@@ -17,12 +17,19 @@ export class PlatformsPage implements OnInit {
   /* Flag for the platforms' array */
   platforms: Platform[] = [];
 
+  /**
+   * Constructor
+   * @param apiService    API Service
+   */
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.loadData();
   }
 
+  /**
+   * Loads platforms from db
+   */
   loadData() {
     this.apiService.getPlatforms().subscribe(
       (data) => {
