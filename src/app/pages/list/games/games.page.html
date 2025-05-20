@@ -9,10 +9,17 @@
   </ion-header>
   
   <ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">games</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <ion-list>
+      <ion-item button lines="full" *ngFor="let game of games">
+        <ion-thumbnail slot="start">
+          <img [alt]="game.cover" [src]="game.cover" *ngIf="game.cover != null">
+          <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ game.title }}</h3>
+          <p class="ion-text-wrap">{{ game.type }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </div>
