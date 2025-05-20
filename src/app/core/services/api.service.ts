@@ -20,6 +20,10 @@ export class ApiService {
     return this.http.get<Game []>(environment.apiBaseUrl+'games');
   }
   
+  getRecentlyAddedGames(): Observable<Game []> {
+    return this.http.get<Game []>(environment.apiBaseUrl+'games/recentlyadded');
+  }
+
   /**
    * Platforms
    * @returns platforms on db
