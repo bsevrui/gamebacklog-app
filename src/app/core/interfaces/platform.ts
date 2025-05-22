@@ -1,4 +1,4 @@
-import { Game } from "./game";
+import { PlatformsGames } from "./platformsgames";
 
 export interface Platform {
     id: number;
@@ -6,5 +6,5 @@ export interface Platform {
     releaseDate: Date;
     detail?: string;
     picture?: string;
-    // games
+    games?: PlatformsGames[];
 }

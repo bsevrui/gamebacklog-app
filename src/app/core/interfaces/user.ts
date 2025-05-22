@@ -1,3 +1,5 @@
+import { UsersGames } from "./usersgames";
+
 export interface User {
     id: number;
     email: string;
@@ -8,5 +10,5 @@ export interface User {
     first_name?: string;
     last_name?: string;
     profilePicture?: string;
-    // games
+    games?: UsersGames[];
 }

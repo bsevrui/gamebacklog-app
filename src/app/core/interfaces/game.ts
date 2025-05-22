@@ -1,13 +1,13 @@
 import { Genre } from "./genre";
-import { Platform } from "./platform";
+import { PlatformsGames } from "./platformsgames";
 
 export interface Game {
     id: number;
     title: string;
     type: string;
     cover?: string;
-    genres?: Genre[];
-    // platforms
     averageScore?: number;
     popularity?: number;
+    genres?: Genre[];
+    platforms?: PlatformsGames[];
 }
