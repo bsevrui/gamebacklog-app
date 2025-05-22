@@ -7,5 +7,7 @@ export interface Game {
     type: string;
     cover?: string;
     genres?: Genre[];
-    platforms?: Platform[];
+    // platforms
+    averageScore?: number;
+    popularity?: number;
 }
