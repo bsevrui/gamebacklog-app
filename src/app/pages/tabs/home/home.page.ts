@@ -14,6 +14,10 @@ import { ApiService } from 'src/app/core/services/api.service';
 export class HomePage implements OnInit {
   /* Flag for recently added games' array */
   recentlyAddedGames: Game[] = [];
+  /* Flag for the top rated games' array */
+  topRatedGames: Game[] = [];
+  /* Flag for more popular games' array */
+  mostPopularGames: Game[] = [];
 
   constructor(private apiService: ApiService) {}
 
