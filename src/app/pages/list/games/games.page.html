@@ -10,7 +10,7 @@
   
   <ion-content [fullscreen]="true">
     <ion-list>
-      <ion-item button lines="full" *ngFor="let game of games">
+      <ion-item button lines="full" [routerLink]="['info', game.id]" routerDirection="forward" *ngFor="let game of games">
         <ion-thumbnail slot="start">
           <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
           <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">

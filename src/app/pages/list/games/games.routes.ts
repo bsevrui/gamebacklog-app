@@ -6,7 +6,7 @@ export const gamesRoutes: Routes = [
         loadComponent: () => import('./games.page').then(m => m.GamesPage),
     },
     {
-        path: 'info',
+        path: 'info/:id',
         loadComponent: () => import('./game-info/game-info.page').then(m => m.GameInfoPage),
     }
 ];
