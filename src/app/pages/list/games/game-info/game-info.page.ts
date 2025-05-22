@@ -5,14 +5,13 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton 
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 import { Game } from 'src/app/core/interfaces/game';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-game-info',
   templateUrl: './game-info.page.html',
   styleUrls: ['./game-info.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, TranslateModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton]
 })
 export class GameInfoPage implements OnInit {
   private gameId: number = 0;
@@ -27,8 +26,8 @@ export class GameInfoPage implements OnInit {
     const ID = this.activatedRoute.snapshot.paramMap.get('id');
     if (ID != null) {
       this.gameId = parseInt(ID);
+      this.loadData();
     }
-    this.loadData();
   }
 
   loadData() {
