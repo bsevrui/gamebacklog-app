@@ -33,20 +33,26 @@ export class AppComponent {
   }
 
   /* Pages on 1st Block 'Pages' */
-    pagesPages: MenuPage[] = [
-      { title: 'PAGE_GAMES', name: '', icon: 'game-controller', path: '/list/games'},
-      { title: 'PAGE_PLATFORMS', name: '', icon: 'game-controller-sharp', path: '/list/platforms'},
-      { title: 'PAGE_GENRES', name: '', icon: 'pricetag', path: '/list/genres'}
-    ];
+  pagesPages: MenuPage[] = [
+    { title: 'PAGE_GAMES', name: '', icon: 'game-controller', path: '/list/games'},
+    { title: 'PAGE_PLATFORMS', name: '', icon: 'game-controller-sharp', path: '/list/platforms'},
+    { title: 'PAGE_GENRES', name: '', icon: 'pricetag', path: '/list/genres'}
+  ];
   
-  /* Pages on 2nd Block 'Tabs' */
-   tabsPages: MenuPage[] = [
+  /* Pages on 2nd Block 'Auth' */
+  authPages: MenuPage[] = [];
+
+  /* Pages on 3rd Block 'Tabs' */
+  tabsPages: MenuPage[] = [
     { title: 'TAB_HOME', name: '', icon: 'home', path: '/tabs/home' },
     { title: 'TAB_USER_GAMES', name: '', icon: 'list-sharp', path: '/tabs/userGames' },
     { title: 'TAB_PROFILE', name: '', icon: 'person', path: '/tabs/profile' }
   ];
-  
-  /* Pages on 3rd Block 'App' */
+
+  /* Pages on 4th Block 'Admin' */
+  adminPages: MenuPage[] = [];
+
+  /* Pages on 5th Block 'App' */
   appPages: MenuPage[] = [
     { title: 'PAGE_ABOUT', name: '', icon: 'information-circle', path: '/about' }
   ];
