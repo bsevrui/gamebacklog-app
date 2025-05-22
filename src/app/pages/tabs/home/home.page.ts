@@ -38,5 +38,11 @@ export class HomePage implements OnInit {
         this.topRatedGames = data;
       }
     );
+    this.apiService.getMostPopular().subscribe(
+      (data) => {
+        console.log(data);
+        this.mostPopularGames = data;
+      }
+    );
   }
 }
