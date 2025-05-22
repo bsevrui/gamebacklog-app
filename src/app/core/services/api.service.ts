@@ -20,10 +20,18 @@ export class ApiService {
     return this.http.get<Game []>(environment.apiBaseUrl+'games');
   }
   
+  /**
+   * Recently Added
+   * @returns the 20 most recently added games on db
+   */
   getRecentlyAddedGames(): Observable<Game []> {
     return this.http.get<Game []>(environment.apiBaseUrl+'games/recentlyadded');
   }
 
+  /**
+   * Top Rated
+   * @returns the first 20 top rated games on db
+   */
   getTopRatedGames(): Observable<Game []> {
     return this.http.get<Game []>(environment.apiBaseUrl+'games/toprated');
   }
