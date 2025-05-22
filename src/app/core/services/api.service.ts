@@ -44,6 +44,11 @@ export class ApiService {
     return this.http.get<Game []>(environment.apiBaseUrl+'games/mostpopular');
   }
 
+  /**
+   * Game
+   * @param gameId 
+   * @returns selected game's info on db
+   */
   getGame(gameId: number): Observable<Game> {
     return this.http.get<Game>(environment.apiBaseUrl+'games/'+gameId);
   }
