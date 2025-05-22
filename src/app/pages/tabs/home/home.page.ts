@@ -32,5 +32,11 @@ export class HomePage implements OnInit {
         this.recentlyAddedGames = data;
       }
     );
+    this.apiService.getTopRatedGames().subscribe(
+      (data) => {
+        console.log(data);
+        this.topRatedGames = data;
+      }
+    );
   }
 }
