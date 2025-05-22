@@ -25,7 +25,7 @@
     <ion-segment-view>
       <ion-segment-content id="recentlyAdded">
         <ion-list>
-          <ion-item button lines="full" *ngFor="let game of recentlyAddedGames">
+          <ion-item button lines="full" [routerLink]="['/list/games/info', game.id]" routerDirection="forward" *ngFor="let game of recentlyAddedGames">
             <ion-thumbnail slot="start">
               <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
               <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
@@ -39,7 +39,7 @@
       </ion-segment-content>
       <ion-segment-content id="topRated">
         <ion-list>
-          <ion-item button lines="full" *ngFor="let game of topRatedGames">
+          <ion-item button lines="full" [routerLink]="['/list/games/info', game.id]" routerDirection="forward" *ngFor="let game of topRatedGames">
             <ion-thumbnail slot="start">
               <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
               <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
@@ -54,7 +54,7 @@
       </ion-segment-content>
       <ion-segment-content id="mostPopular">
         <ion-list>
-          <ion-item button lines="full" *ngFor="let game of mostPopularGames">
+          <ion-item button lines="full" [routerLink]="['/list/games/info', game.id]" routerDirection="forward" *ngFor="let game of mostPopularGames">
             <ion-thumbnail slot="start">
               <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
               <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
