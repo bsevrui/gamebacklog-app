@@ -60,6 +60,15 @@ export class ApiService {
   getPlatforms(): Observable<Platform []> {
     return this.http.get<Platform []>(environment.apiBaseUrl+'platforms');
   }
+
+  /**
+   * Platform
+   * @param platformId platform's id
+   * @returns selected platform's info on db
+   */
+  getPlatform(platformId: number): Observable<Platform> {
+    return this.http.get<Platform>(environment.apiBaseUrl+'platforms/'+platformId);
+  }
   
   /**
    * Genres
