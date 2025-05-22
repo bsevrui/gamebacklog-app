@@ -10,7 +10,7 @@
   
   <ion-content [fullscreen]="true">
     <ion-list>
-      <ion-item button lines="full" *ngFor="let genre of genres">
+      <ion-item button lines="full" [routerLink]="['info', genre.id]" routerDirection="forward" *ngFor="let genre of genres">
         <ion-label>
           <h3>{{ genre.name }}</h3>
           <p class="ion-text-wrap" *ngIf="genre.description != null">{{ genre.description }}</p>

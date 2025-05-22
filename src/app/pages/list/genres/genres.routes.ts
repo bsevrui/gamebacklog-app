@@ -6,7 +6,7 @@ export const genresRoutes: Routes = [
         loadComponent: () => import('./genres.page').then(m => m.GenresPage),
     },
     {
-        path: 'info',
+        path: 'info/:id',
         loadComponent: () => import('./genre-info/genre-info.page').then(m => m.GenreInfoPage),
     }
 ];

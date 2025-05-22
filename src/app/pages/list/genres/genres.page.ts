@@ -5,13 +5,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton,
 import { TranslateModule } from '@ngx-translate/core';
 import { Genre } from 'src/app/core/interfaces/genre';
 import { ApiService } from 'src/app/core/services/api.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-genres',
   templateUrl: './genres.page.html',
   styleUrls: ['./genres.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonButtons, IonMenuButton, IonList, IonItem, IonLabel, IonRouterLink ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonButtons, IonMenuButton, IonList, IonItem, IonLabel, IonRouterLink, RouterLink]
 })
 export class GenresPage implements OnInit {
   
