@@ -46,7 +46,7 @@ export class ApiService {
 
   /**
    * Game
-   * @param gameId 
+   * @param gameId game's id
    * @returns selected game's info on db
    */
   getGame(gameId: number): Observable<Game> {
@@ -67,5 +67,14 @@ export class ApiService {
    */
   getGenres(): Observable<Genre []> {
     return this.http.get<Genre []>(environment.apiBaseUrl+'genres');
+  }
+
+  /**
+   * Genre
+   * @param genreId genre's id
+   * @returns selected genre's info on db
+   */
+  getGenre(genreId: number): Observable<Genre> {
+    return this.http.get<Genre>(environment.apiBaseUrl+'genres/'+genreId);
   }
 }
