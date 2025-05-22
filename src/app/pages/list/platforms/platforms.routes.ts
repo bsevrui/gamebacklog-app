@@ -6,7 +6,7 @@ export const platformsRoutes: Routes = [
         loadComponent: () => import('./platforms.page').then(m => m.PlatformsPage),
     },
     {
-        path: 'info',
+        path: 'info/:id',
         loadComponent: () => import('./platform-info/platform-info.page').then(m => m.PlatformInfoPage),
     }
 ];

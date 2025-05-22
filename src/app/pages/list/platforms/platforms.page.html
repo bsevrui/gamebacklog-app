@@ -10,7 +10,7 @@
   
   <ion-content [fullscreen]="true">
     <ion-list>
-      <ion-item button lines="full" *ngFor="let platform of platforms">
+      <ion-item button lines="full" [routerLink]="['info', platform.id]" *ngFor="let platform of platforms">
         <ion-thumbnail slot="start">
           <img [alt]="platform.name" [src]="platform.picture" *ngIf="platform.picture != null">
           <img alt="img not available" src="assets/img/na.png" *ngIf="platform.picture == null">
