@@ -34,27 +34,35 @@ export class AppComponent {
 
   /* Pages on 1st Block 'Pages' */
   pagesPages: MenuPage[] = [
-    { title: 'PAGE_GAMES', name: '', icon: 'game-controller', path: '/list/games'},
-    { title: 'PAGE_PLATFORMS', name: '', icon: 'game-controller-sharp', path: '/list/platforms'},
-    { title: 'PAGE_GENRES', name: '', icon: 'pricetag', path: '/list/genres'}
+    { title: 'PAGE_GAMES', icon: 'game-controller', path: '/list/games' },
+    { title: 'PAGE_PLATFORMS', icon: 'game-controller-sharp', path: '/list/platforms' },
+    { title: 'PAGE_GENRES', icon: 'pricetag', path: '/list/genres' }
   ];
   
   /* Pages on 2nd Block 'Auth' */
-  authPages: MenuPage[] = [];
+  authPages: MenuPage[] = [
+    { title: 'PAGE_LOGIN', icon: '', path: '' },
+    { title: 'PAGE_SIGNUP', icon: '', path: '' }
+  ];
 
   /* Pages on 3rd Block 'Tabs' */
   tabsPages: MenuPage[] = [
-    { title: 'TAB_HOME', name: '', icon: 'home', path: '/tabs/home' },
-    { title: 'TAB_USER_GAMES', name: '', icon: 'list-sharp', path: '/tabs/userGames' },
-    { title: 'TAB_PROFILE', name: '', icon: 'person', path: '/tabs/profile' }
+    { title: 'TAB_HOME', icon: 'home', path: '/tabs/home' },
+    { title: 'TAB_USER_GAMES', icon: 'list-sharp', path: '/tabs/userGames' },
+    { title: 'TAB_PROFILE', icon: 'person', path: '/tabs/profile' }
   ];
 
   /* Pages on 4th Block 'Admin' */
-  adminPages: MenuPage[] = [];
+  adminPages: MenuPage[] = [
+    { title: '', icon: '', path: '' },
+    { title: '', icon: '', path: '' },
+    { title: '', icon: '', path: '' },
+    { title: '', icon: '', path: '' }
+  ];
 
   /* Pages on 5th Block 'App' */
   appPages: MenuPage[] = [
-    { title: 'PAGE_ABOUT', name: '', icon: 'information-circle', path: '/about' }
+    { title: 'PAGE_ABOUT', icon: 'information-circle', path: '/about' }
   ];
 
   public initializeApp() {
