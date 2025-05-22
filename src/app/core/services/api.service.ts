@@ -37,6 +37,14 @@ export class ApiService {
   }
 
   /**
+   * Most Popular
+   * @returns the 20 most popular games on db
+   */
+  getMostPopular(): Observable<Game []> {
+    return this.http.get<Game []>(environment.apiBaseUrl+'games/mostpopular');
+  }
+
+  /**
    * Platforms
    * @returns platforms on db
    */
