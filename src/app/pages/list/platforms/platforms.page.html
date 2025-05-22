@@ -17,6 +17,7 @@
         </ion-thumbnail>
         <ion-label>
           <h3>{{ platform.name }}</h3>
+          <p class="ion-text-wrap">{{platform.releaseDate }}</p>
           <p class="ion-text-wrap" *ngIf="platform.detail != null">{{ platform.detail }}</p>
         </ion-label>
       </ion-item>
