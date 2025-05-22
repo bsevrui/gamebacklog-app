@@ -47,7 +47,7 @@
             <ion-label>
               <h3>{{ game.title }}</h3>
               <p class="ion-text-wrap">{{ game.type }}</p>
-              <p class="ion-text-wrap">{{ game.averageScore }}</p>
+              <p class="ion-text-wrap">{{ 'LABEL_COMMUNITYSCORE' | translate }}: {{ game.averageScore }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
@@ -62,7 +62,7 @@
             <ion-label>
               <h3>{{ game.title }}</h3>
               <p class="ion-text-wrap">{{ game.type }}</p>
-              <p class="ion-text-wrap">{{ game.popularity }}</p>
+              <p class="ion-text-wrap">{{ 'LABEL_POPULARITY' | translate }}: {{ game.popularity }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
