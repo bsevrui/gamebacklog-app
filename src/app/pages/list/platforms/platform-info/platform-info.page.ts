@@ -17,7 +17,6 @@ import { Game } from 'src/app/core/interfaces/game';
 export class PlatformInfoPage implements OnInit {
   private platformId: number = 0;
   public platform?: Platform;
-  public games: Game[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,12 +36,6 @@ export class PlatformInfoPage implements OnInit {
       (data) => {
         console.log(data);
         this.platform = data;
-      }
-    );
-    this.apiService.getGamesByPlatform(this.platformId).subscribe(
-      (data) => {
-        console.log(data);
-        this.games = data;
       }
     );
   }
