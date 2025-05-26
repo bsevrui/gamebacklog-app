@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 import { Game } from 'src/app/core/interfaces/game';
@@ -11,7 +11,7 @@ import { Game } from 'src/app/core/interfaces/game';
   templateUrl: './game-info.page.html',
   styleUrls: ['./game-info.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonList, IonItem, IonLabel]
 })
 export class GameInfoPage implements OnInit {
   private gameId: number = 0;
