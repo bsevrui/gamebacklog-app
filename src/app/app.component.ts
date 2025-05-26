@@ -54,10 +54,10 @@ export class AppComponent {
 
   /* Pages on 4th Block 'Admin' */
   adminPages: MenuPage[] = [
-    { title: '', icon: '', path: '' },
-    { title: '', icon: '', path: '' },
-    { title: '', icon: '', path: '' },
-    { title: '', icon: '', path: '' }
+    { title: 'PAGE_ADMIN_GAMES', icon: '', path: '' },
+    { title: 'PAGE_ADMIN_PLATFORMS', icon: '', path: '' },
+    { title: 'PAGE_ADMIN_GENRES', icon: '', path: '' },
+    { title: 'PAGE_ADMIN_USERS', icon: '', path: '' }
   ];
 
   /* Pages on 5th Block 'App' */
