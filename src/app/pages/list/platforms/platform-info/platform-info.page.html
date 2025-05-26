@@ -9,15 +9,15 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item button lines="full" [routerLink]="['/list/games/info', game.id]" routerDirection="forward" *ngFor="let game of platform?.games">
+    <ion-item button lines="full" [routerLink]="['/list/games/info', item.game?.id]" routerDirection="forward" *ngFor="let item of platform?.games">
       <ion-thumbnail slot="start">
-          <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
-          <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
+          <img [alt]="item.game?.title" [src]="item.game?.cover" *ngIf="item.game?.cover != null">
+          <img alt="img not available" src="assets/img/na.png" *ngIf="item.game?.cover == null">
         </ion-thumbnail>
         <ion-label>
-          <h3>{{ game.title }}</h3>
-          <p class="ion-text-wrap">{{ game.type }}</p>
-          <p class="ion-text-wrap">{{ game.releaseDate }}</p>
+          <h3>{{ item.game?.title }}</h3>
+          <p class="ion-text-wrap">{{ item.game?.type }}</p>
+          <p class="ion-text-wrap">{{ item.releaseDate }}</p>
         </ion-label>
     </ion-item>
   </ion-list>
