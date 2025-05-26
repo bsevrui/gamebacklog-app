@@ -6,7 +6,7 @@ import { LocalizationService } from './core/services/localization.service';
 import { DeviceService } from './core/services/device.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle } from 'ionicons/icons';
+import { gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle, people, peopleSharp, logIn, logOut, logInOutline } from 'ionicons/icons';
 import { MenuPage } from './core/interfaces/menu-page';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
@@ -28,7 +28,7 @@ export class AppComponent {
     private localizationService: LocalizationService,
     private deviceService: DeviceService
   ) {
-    addIcons({gameController, gameControllerSharp, pricetag,home, listSharp, person, settingsSharp, informationCircle});
+    addIcons({gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle, peopleSharp, logIn, logInOutline});
     this.initializeApp();
   }
 
@@ -41,8 +41,8 @@ export class AppComponent {
   
   /* Pages on 2nd Block 'Auth' */
   authPages: MenuPage[] = [
-    { title: 'PAGE_LOGIN', icon: '', path: '' },
-    { title: 'PAGE_SIGNUP', icon: '', path: '' }
+    { title: 'PAGE_LOGIN', icon: 'log-in', path: '' },
+    { title: 'PAGE_SIGNUP', icon: 'log-in-outline', path: '' }
   ];
 
   /* Pages on 3rd Block 'Tabs' */
@@ -54,10 +54,10 @@ export class AppComponent {
 
   /* Pages on 4th Block 'Admin' */
   adminPages: MenuPage[] = [
-    { title: 'PAGE_ADMIN_GAMES', icon: '', path: '' },
-    { title: 'PAGE_ADMIN_PLATFORMS', icon: '', path: '' },
-    { title: 'PAGE_ADMIN_GENRES', icon: '', path: '' },
-    { title: 'PAGE_ADMIN_USERS', icon: '', path: '' }
+    { title: 'PAGE_ADMIN_GAMES', icon: 'game-controller', path: '' },
+    { title: 'PAGE_ADMIN_PLATFORMS', icon: 'game-controller-sharp', path: '' },
+    { title: 'PAGE_ADMIN_GENRES', icon: 'pricetag', path: '' },
+    { title: 'PAGE_ADMIN_USERS', icon: 'people-sharp', path: '' }
   ];
 
   /* Pages on 5th Block 'App' */
