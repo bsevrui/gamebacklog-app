@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton,
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Platform } from 'src/app/core/interfaces/platform';
 import { ApiService } from 'src/app/core/services/api.service';
+import { Game } from 'src/app/core/interfaces/game';
 
 @Component({
   selector: 'app-platform-info',
@@ -16,6 +17,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 export class PlatformInfoPage implements OnInit {
   private platformId: number = 0;
   public platform?: Platform;
+  public games: Game[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -35,6 +37,12 @@ export class PlatformInfoPage implements OnInit {
       (data) => {
         console.log(data);
         this.platform = data;
+      }
+    );
+    this.apiService.getGamesByPlatform(this.platformId).subscribe(
+      (data) => {
+        console.log(data);
+        this.games = data;
       }
     );
   }

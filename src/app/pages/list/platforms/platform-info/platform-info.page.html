@@ -8,5 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <ion-list>
+    <ion-item button lines="full" [routerLink]="['/list/games/info', game.id]" routerDirection="forward" *ngFor="let game of games">
+      <ion-thumbnail slot="start">
+          <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
+          <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ game.title }}</h3>
+          <p class="ion-text-wrap">{{ game.type }}</p>
+          <p class="ion-text-wrap">{{ game.releaseDate }}</p>
+        </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
