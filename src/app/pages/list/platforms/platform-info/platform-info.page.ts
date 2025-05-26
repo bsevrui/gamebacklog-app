@@ -5,7 +5,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton,
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Platform } from 'src/app/core/interfaces/platform';
 import { ApiService } from 'src/app/core/services/api.service';
-import { Game } from 'src/app/core/interfaces/game';
 
 @Component({
   selector: 'app-platform-info',
