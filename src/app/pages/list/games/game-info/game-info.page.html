@@ -8,5 +8,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <ion-list>
+    <ion-img *ngIf="game?.cover != null" [src]="[game?.cover]" alt="game cover img"></ion-img>
+    <ion-img *ngIf="game?.cover == null" src="assets/img/na.png" alt="img not available"></ion-img>
+    <ion-item lines="full">
+      <ion-label class="ion-text-center">{{ game?.title }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>{{ 'TITLE_GENRES' | translate }}</ion-list-header>
+    <ion-item button lines="full" [routerLink]="['/list/genres/info', genre?.id]" routerDirection="forward" *ngFor="let genre of game?.genres">
+      <ion-label>
+        <h3>{{ genre?.name }}</h3>
+        <p *ngIf="genre?.description != null">{{ genre?.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>{{ 'TITLE_RELEASEDON' | translate }}</ion-list-header>
+    <ion-item button lines="full" [routerLink]="['/list/platforms/info', item?.platform?.id]" routerDirection="forward" *ngFor="let item of game?.platforms">
+      <ion-label>
+        <h3>{{ item?.platform?.name }}</h3>
+        <p>{{ item?.releaseDate }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
