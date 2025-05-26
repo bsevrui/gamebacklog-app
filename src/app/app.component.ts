@@ -41,8 +41,8 @@ export class AppComponent {
   
   /* Pages on 2nd Block 'Auth' */
   authPages: MenuPage[] = [
-    { title: 'PAGE_LOGIN', icon: 'log-in', path: '' },
-    { title: 'PAGE_SIGNUP', icon: 'log-in-outline', path: '' }
+    { title: 'PAGE_LOGIN', icon: 'log-in', path: '/auth/login' },
+    { title: 'PAGE_SIGNUP', icon: 'log-in-outline', path: '/auth/signup' }
   ];
 
   /* Pages on 3rd Block 'Tabs' */
