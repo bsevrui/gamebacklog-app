@@ -6,6 +6,7 @@ export interface Game {
     title: string;
     type: string;
     cover?: string;
+    releaseDate?: Date;
     averageScore?: number;
     popularity?: number;
     genres?: Genre[];
