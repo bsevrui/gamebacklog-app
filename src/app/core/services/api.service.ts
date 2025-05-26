@@ -45,15 +45,6 @@ export class ApiService {
   }
 
   /**
-   * Games by Platform
-   * @param platformId platform's id
-   * @returns selected platform games' on db
-   */
-  getGamesByPlatform(platformId: number): Observable<Game []> {
-    return this.http.get<Game []>(environment.apiBaseUrl+'games/byplatform/'+platformId);
-  }
-
-  /**
    * Game
    * @param gameId game's id
    * @returns selected game's info on db
