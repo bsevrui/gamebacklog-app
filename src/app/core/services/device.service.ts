@@ -21,52 +21,38 @@ export class DeviceService {
    * Constructor
    * @param platform  Platform
    */
-  constructor(
-    private platform: Platform,
-  ) {}
+  constructor(private platform: Platform) {}
 
   /**
    * Is Device.
    * @returns If is Device.
    */
-  private _isDevice(): boolean {
+  private isDevice(): boolean {
     return this.platform.is('cordova');
-  }
-  public isDevice(): boolean {
-    return this._isDevice();
   }
 
   /**
    * Is Android
    * @returns If is Android
    */
-  private _isAndroid(): boolean {
+  private isAndroid(): boolean {
     return this.platform.is('android');
-  }
-  public isAndroid(): boolean {
-    return this._isAndroid();
   }
 
   /**
    * Is iOS
    * @returns If is iOS
    */
-  private _isIOS(): boolean {
+  private isIOS(): boolean {
     return this.platform.is('ios');
-  }
-  public isIOS(): boolean {
-    return this._isIOS();
   }
 
   /**
    * Is PWA
    * @returns If is PWA
    */
-  private _isPWA(): boolean {
+  private isPWA(): boolean {
     return this.platform.is('pwa');
-  }
-  public isPWA(): boolean {
-    return this._isPWA();
   }
 
   /**
@@ -74,10 +60,10 @@ export class DeviceService {
    * @returns Platform device.
    */
   public platformDevice() {
-    if (this._isDevice()) {
-      if (this._isAndroid()) {
+    if (this.isDevice()) {
+      if (this.isAndroid()) {
         return String(PLATFORM_DEVICE.android).toLowerCase();
-      } else if (this._isIOS()) {
+      } else if (this.isIOS()) {
         return String(PLATFORM_DEVICE.ios).toLowerCase();
       } else {
         return String(PLATFORM_DEVICE.pwa).toLowerCase();
@@ -92,7 +78,7 @@ export class DeviceService {
    * @returns Device's OS Version
    */
   public deviceOSVersion(): string {
-    if (this._isDevice()) {
+    if (this.isDevice()) {
       let OSVersion: string = String(async () => {
         (await Device.getInfo()).osVersion;
       });
@@ -107,7 +93,7 @@ export class DeviceService {
    * @returns Device's Model
    */
   public deviceModel(): string {
-    if (this._isDevice()) {
+    if (this.isDevice()) {
       let model: string = String(async () => {
         (await Device.getInfo()).model;
       });
@@ -122,7 +108,7 @@ export class DeviceService {
    * @returns Device's UUID
    */
   public deviceUUID(): string {
-    if (this._isDevice()) {
+    if (this.isDevice()) {
       const DEVICE_UUID: string = String(async () => {
         await Device.getId();
       });
@@ -139,15 +125,15 @@ export class DeviceService {
   public initializeDevice(): Promise<any> {
     let promise = new Promise<void>((resolve, reject) => {
       this.platform.ready().then(async () => {
-        if (this._isDevice()) {
-          if (this._isAndroid()) {
+        if (this.isDevice()) {
+          if (this.isAndroid()) {
             StatusBar.setOverlaysWebView({ overlay: false });
-          } else if (this._isIOS()) {
+          } else if (this.isIOS()) {
             window.addEventListener('statusTap', function () {
               console.log('statusbar tapped');
             })
             StatusBar.setOverlaysWebView({ overlay: true });
-          } else if (this._isPWA()) {
+          } else if (this.isPWA()) {
             await SplashScreen.hide();
             await ScreenOrientation.lock({ orientation: 'portrait' });
           }
