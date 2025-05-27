@@ -27,7 +27,7 @@ export class DeviceService {
    * Is Device.
    * @returns If is Device.
    */
-  private isDevice(): boolean {
+  public isDevice(): boolean {
     return this.platform.is('cordova');
   }
 
@@ -35,7 +35,7 @@ export class DeviceService {
    * Is Android
    * @returns If is Android
    */
-  private isAndroid(): boolean {
+  public isAndroid(): boolean {
     return this.platform.is('android');
   }
 
@@ -43,7 +43,7 @@ export class DeviceService {
    * Is iOS
    * @returns If is iOS
    */
-  private isIOS(): boolean {
+  public isIOS(): boolean {
     return this.platform.is('ios');
   }
 
@@ -51,7 +51,7 @@ export class DeviceService {
    * Is PWA
    * @returns If is PWA
    */
-  private isPWA(): boolean {
+  public isPWA(): boolean {
     return this.platform.is('pwa');
   }
 
