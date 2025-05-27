@@ -15,37 +15,31 @@ import { RouterLink } from '@angular/router';
 })
 export class AboutPage implements OnInit {
   /* Device's Model */
-  public deviceModel$: string = 'undefined';
+  public deviceModel: string = 'undefined';
 
   /* Device's UUID */
-  public deviceUUID$: string = 'undefined';
+  public deviceUUID: string = 'undefined';
 
   /* Device's OS */
-  public deviceOS$: string = 'undefined';
+  public deviceOS: string = 'undefined';
 
   /**
    * Constructor
    * @param deviceService   Device Service.
    */
-  constructor(
-    private deviceService: DeviceService
-  ) {}
+  constructor(private deviceService: DeviceService) {}
 
   ngOnInit() {
-    this._getDeviceData();
-  }
-
-  ionViewWillEnter() {
-    this._getDeviceData();
+    this.getDeviceData();
   }
 
   /**
    * Get the Device's information
    * @returns void.
    */
-  private _getDeviceData(): void {
-    this.deviceModel$ = this.deviceService.deviceModel();
-    this.deviceUUID$ = this.deviceService.deviceUUID();
-    this.deviceOS$ = this.deviceService.deviceOSVersion();
+  private getDeviceData(): void {
+    this.deviceModel = this.deviceService.deviceModel();
+    this.deviceUUID = this.deviceService.deviceUUID();
+    this.deviceOS = this.deviceService.deviceOSVersion();
   }
 }
