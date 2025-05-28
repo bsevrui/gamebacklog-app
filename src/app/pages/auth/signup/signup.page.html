@@ -7,4 +7,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"></ion-content>
+<ion-content [fullscreen]="true">
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_EMAIL' | translate }}" labelPlacement="floating" [(ngModel)]="email" [counter]="true" maxlength="100" [clearInput]="true" debounce="500" inputmode="email" type="email" required="true"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_USERNAME' | translate }}" labelPlacement="floating" [(ngModel)]="username" [counter]="true" maxlength="50" [clearInput]="true" debounce="500" inputmode="text" required="true"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_PASSWORD' | translate }}" labelPlacement="floating" [(ngModel)]="password" [counter]="true" minlength="6" maxlength="16" [clearInput]="true" debounce="500" inputmode="text" type="password" required="true"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_REPEATPASSWORD' | translate }}" labelPlacement="floating" [(ngModel)]="repeatPassword" [counter]="true" minlength="6" maxlength="16" [clearInput]="true" debounce="500" inputmode="text" type="password" required="true"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_BIRTHDATE' | translate }}" labelPlacement="floating" [(ngModel)]="birthdate" [counter]="true" [clearInput]="true" debounce="500" type="date" required="true"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_FIRSTNAME' | translate }}" labelPlacement="floating" [(ngModel)]="firstName" [counter]="true" maxlength="75" [clearInput]="true" debounce="500" inputmode="text"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-input label="{{ 'LABEL_LASTNAME' | translate }}" labelPlacement="floating" [(ngModel)]="lastName" [counter]="true" maxlength="100" [clearInput]="true" debounce="500" inputmode="text"></ion-input>
+  </ion-item>
+  <div class="ion-padding">
+    <ion-button expand="block" color="primary" (click)="signup()">{{ 'ACTION_SIGNUP' | translate }}</ion-button>
+  </div>
+</ion-content>
