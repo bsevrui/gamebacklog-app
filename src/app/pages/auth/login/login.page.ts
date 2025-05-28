@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonInput, IonButtons, IonMenuButton, IonButton } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,23 @@ import { RouterLink } from '@angular/router';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonList, IonItem, IonInput, IonButtons, IonMenuButton, IonButton, RouterLink]
 })
 export class LoginPage implements OnInit {
-  public signupButtonStatus: boolean = false;
-  public email: string = "";
-  public password: string = "";
+  public email?: string;
+  public password?: string;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
+
+  login() {
+    const userData = {
+      email: this.email,
+      password: this.password
+    };
+
+    this.authService.login(userData).subscribe(
+      (response) => {
+        console.log('successful login', response);
+      }
+    );
+  }
 }

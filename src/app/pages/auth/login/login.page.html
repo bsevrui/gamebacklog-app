@@ -10,14 +10,14 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item lines="full">
-      <ion-input label="{{ 'LABEL_EMAIL' | translate }}" labelPlacement="floating" name="loginEmailInput" [counter]="true" maxLength="100" [clearInput]="true" debounce="500" type="email" required="true"></ion-input>
+      <ion-input label="{{ 'LABEL_EMAIL' | translate }}" labelPlacement="floating" [(ngModel)]="email" [clearInput]="true" debounce="500" inputmode="email" type="email" required="true"></ion-input>
     </ion-item>
     <ion-item lines="full">
-      <ion-input label="{{ 'LABEL_PASSWORD' | translate }}" labelPlacement="floating" name="loginPasswordInput" minlength="6" [clearInput]="true" debounce="500" type="password" required="true"></ion-input>
+      <ion-input label="{{ 'LABEL_PASSWORD' | translate }}" labelPlacement="floating" [(ngModel)]="password" [clearInput]="true" debounce="500" inputmode="text" type="password" required="true"></ion-input>
     </ion-item>
   </ion-list>
   <div class="ion-padding">
-    <ion-button expand="block" color="primary">{{ 'ACTION_LOGIN' | translate }}</ion-button>
+    <ion-button expand="block" color="primary" (click)="login()">{{ 'ACTION_LOGIN' | translate }}</ion-button>
     <ion-button expand="block" color="medium" fill="outline" [routerLink]="['/auth/signup']" routerDirection="forward">{{ 'ACTION_SIGNUP' | translate }}</ion-button>
   </div>
 </ion-content>
