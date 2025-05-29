@@ -28,7 +28,7 @@
             <ion-label>{{ p.title | translate }}</ion-label>
           </ion-item>
         </ion-list>
-        <ion-list>
+        <ion-list *ngIf="!authenticated">
           <ion-list-header>{{ 'TITLE_ADMIN' | translate }}</ion-list-header>
           <ion-item button *ngFor="let p of adminPages" lines="none" routerDirection="root" [routerLink]="[p.path]" detail="false" routerLinkActive="selected">
             <ion-icon [name]="p.icon" slot="start"></ion-icon>
