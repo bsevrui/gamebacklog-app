@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonMenuButton, IonButtons, IonInput, IonItem, IonButton } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { StorageService } from 'src/app/core/services/storage.service';
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonMenuButton, IonButtons, IonInput, IonItem, IonButton]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonMenuButton, IonButtons, IonInput, IonItem, IonButton, RouterLink]
 })
 export class SignupPage implements OnInit {
   public email?: string;
