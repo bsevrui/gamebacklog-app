@@ -8,5 +8,9 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content [fullscreen]="true"></ion-content>
+  <ion-content [fullscreen]="true">
+    <div class="ion-padding">
+      <ion-button expand="block" color="danger" fill="outline" (click)="logOut()">{{ 'ACTION_LOGOUT' | translate }}</ion-button>
+    </div>
+  </ion-content>
 </div>

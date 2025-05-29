@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonButton } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
+import { StorageService } from 'src/app/core/services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonButton],
 })
 export class ProfilePage {
+  /**
+   * Constructor
+   * @param storageService Storage Service.
+   * @param router Router.
+   */
+  constructor(
+    private storageService: StorageService,
+    private router: Router
+  ) {}
 
-  constructor() {}
-
+  async logOut() {
+    await this.storageService.clearUserData();
+    this.router.navigate(['/auth/login']);
+  }
 }
