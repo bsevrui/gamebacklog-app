@@ -5,6 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonInput
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,10 @@ export class LoginPage implements OnInit {
   public email?: string;
   public password?: string;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private storageService: StorageService
+  ) {}
 
   ngOnInit() {}
 
@@ -28,8 +32,10 @@ export class LoginPage implements OnInit {
     };
 
     this.authService.login(userData).subscribe(
-      (response) => {
-        console.log('successful login', response);
+      async (response) => {
+        console.log(response.accessToken);
+        console.log(response.user);
+        await this.storageService.setUserData(response.accessToken, response.user);
       }
     );
   }
