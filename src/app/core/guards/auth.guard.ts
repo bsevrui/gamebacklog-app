@@ -5,7 +5,6 @@ import { StorageService } from '../services/storage.service';
 export const authGuard: CanActivateFn = async (route, state) => {
   const router = inject(Router);
   const storageService = inject(StorageService);
-
   const authenticated = await storageService.isAuthenticated();
 
   if (authenticated) {
