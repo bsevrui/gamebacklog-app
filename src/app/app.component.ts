@@ -10,6 +10,7 @@ import { gameController, gameControllerSharp, pricetag, home, listSharp, person,
 import { MenuPage } from './core/interfaces/menu-page';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+import { StorageService } from './core/services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -17,19 +18,24 @@ import { CommonModule } from '@angular/common';
   imports: [IonApp, IonRouterOutlet, RouterLink, RouterLinkActive, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonItem, IonIcon, IonLabel, IonRouterLink, IonHeader, IonToolbar, IonTitle, TranslateModule, CommonModule],
 })
 export class AppComponent {
+  public authenticated?: Promise<boolean>;
+
   /**
    * Constructor
    * @param platform              Platform.
    * @param localizationService   Localization Service.
    * @param deviceService         Device Service.
+   * @param storageService        Storage Service.
    */
   constructor(
     private platform: Platform,
     private localizationService: LocalizationService,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private storageService: StorageService
   ) {
     addIcons({gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle, peopleSharp, logIn, logInOutline});
     this.initializeApp();
+    this.authenticated = this.storageService.isAuthenticated();
   }
 
   /* Pages on 1st Block 'Pages' */
@@ -38,7 +44,7 @@ export class AppComponent {
     { title: 'PAGE_PLATFORMS', icon: 'game-controller-sharp', path: '/list/platforms' },
     { title: 'PAGE_GENRES', icon: 'pricetag', path: '/list/genres' }
   ];
-  
+
   /* Pages on 2nd Block 'Auth' */
   authPages: MenuPage[] = [
     { title: 'PAGE_LOGIN', icon: 'log-in', path: '/auth/login' },
