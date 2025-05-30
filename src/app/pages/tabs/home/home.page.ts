@@ -20,6 +20,10 @@ export class HomePage implements OnInit {
   /* Flag for more popular games' array */
   mostPopularGames: Game[] = [];
 
+  /**
+   * Constructor
+   * @param apiService API Service.
+   */
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
