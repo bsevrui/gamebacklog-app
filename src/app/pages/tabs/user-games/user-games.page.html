@@ -6,7 +6,85 @@
       </ion-buttons>
       <ion-title>{{ 'TAB_USER_GAMES' | translate }}</ion-title>
     </ion-toolbar>
+    <ion-toolbar>
+      <ion-segment [scrollable]="true" value="allGames">
+        <ion-segment-button value="allGames" content-id="allGames">
+          <ion-label>{{ 'USER_LIST_ALL' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="playingGames" content-id="playingGames">
+          <ion-label>{{ 'USER_LIST_PLAYING' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="completedGames" content-id="completedGames">
+          <ion-label>{{ 'USER_LIST_COMPLETED' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="playedGames" content-id="playedGames">
+          <ion-label>{{ 'USER_LIST_PLAYED' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="onHoldGames" content-id="onHoldGames">
+          <ion-label>{{ 'USER_LIST_ONHOLD' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="planToPlayGames" content-id="planToPlayGames">
+          <ion-label>{{ 'USER_LIST_PLANTOPLAY' | translate }}</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="droppedGames" content-id="droppedGames">
+          <ion-label>{{ 'USER_LIST_DROPPED' | translate }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
   </ion-header>
   
-  <ion-content [fullscreen]="true"></ion-content>
+  <ion-content [fullscreen]="true">
+    <ion-segment-view>
+      <ion-segment-content id="allGames">
+        <ion-list>
+          <ion-list-header>{{ 'USER_LIST_PLAYING' | translate }}</ion-list-header>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'USER_LIST_COMPLETED' | translate }}</ion-list-header>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'USER_LIST_PLAYED' | translate }}</ion-list-header>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'USER_LIST_ONHOLD' | translate }}</ion-list-header>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'USER_LIST_PLANTOPLAY' | translate }}</ion-list-header>
+        </ion-list>
+        <ion-list>
+          <ion-list-header>{{ 'USER_LIST_DROPPED' | translate }}</ion-list-header>
+        </ion-list>
+      </ion-segment-content>
+      <ion-segment-content id="playingGames">
+        <ion-list>
+
+        </ion-list>
+      </ion-segment-content>
+      <ion-segment-content id="completedGames">
+        <ion-list>
+
+        </ion-list>
+      </ion-segment-content>
+      <ion-segment-content id="playedGames">
+        <ion-list>
+
+        </ion-list>
+      </ion-segment-content>
+      <ion-segment-content id="onHoldGames">
+        <ion-list>
+
+        </ion-list>
+      </ion-segment-content>
+      <ion-segment-content id="planToPlayGames">
+        <ion-list>
+
+        </ion-list>
+      </ion-segment-content>
+      <ion-segment-content id="droppedGames">
+        <ion-list>
+
+        </ion-list>
+      </ion-segment-content>
+    </ion-segment-view>
+  </ion-content>
 </div>
