@@ -7,8 +7,8 @@ export interface User {
     registrationDate: Date;
     birthdate: Date;
     password?: string;
-    first_name?: string;
-    last_name?: string;
+    firstName?: string;
+    lastName?: string;
     profilePicture?: string;
     games?: UsersGames[];
 }
