@@ -38,103 +38,175 @@
       <ion-segment-content id="allGames">
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLAYING' | translate }}</ion-list-header>
+          <ion-item class="playingGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playingGames">
+            <ion-thumbnail slot="start">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
+            </ion-label>
+          </ion-item>
         </ion-list>
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_COMPLETED' | translate }}</ion-list-header>
+          <ion-item class="completedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of completedGames">
+            <ion-thumbnail slot="start">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
+            </ion-label>
+          </ion-item>
         </ion-list>
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLAYED' | translate }}</ion-list-header>
+          <ion-item class="playedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playedGames">
+            <ion-thumbnail slot="start">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
+            </ion-label>
+          </ion-item>
         </ion-list>
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_ONHOLD' | translate }}</ion-list-header>
+          <ion-item class="onHoldGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of onHoldGames">
+            <ion-thumbnail slot="start">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
+            </ion-label>
+          </ion-item>
         </ion-list>
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLANTOPLAY' | translate }}</ion-list-header>
+          <ion-item class="planToPlayGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of planToPlayGames">
+            <ion-thumbnail slot="start">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
+            </ion-label>
+          </ion-item>
         </ion-list>
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_DROPPED' | translate }}</ion-list-header>
+          <ion-item class="droppedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of droppedGames">
+            <ion-thumbnail slot="start">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
+            </ion-label>
+          </ion-item>
         </ion-list>
       </ion-segment-content>
       <ion-segment-content id="playingGames">
         <ion-list>
-          <ion-item class="playingGames" button lines="full" [routerLink]="['/list/games/info']" routerDirection="forward" *ngFor="">
+          <ion-item class="playingGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playingGames">
             <ion-thumbnail slot="start">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
             </ion-thumbnail>
             <ion-label>
-              <h3></h3>
-              <p></p>
-              <p></p>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-segment-content>
       <ion-segment-content id="completedGames">
         <ion-list>
-          <ion-item class="completedGames" button lines="full" [routerLink]="['/list/games/info']" routerDirection="forward" *ngFor="">
+          <ion-item class="completedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of completedGames">
             <ion-thumbnail slot="start">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
             </ion-thumbnail>
             <ion-label>
-              <h3></h3>
-              <p></p>
-              <p></p>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-segment-content>
       <ion-segment-content id="playedGames">
         <ion-list>
-          <ion-item class="playedGames" button lines="full" [routerLink]="['/list/games/info']" routerDirection="forward" *ngFor="">
+          <ion-item class="playedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playedGames">
             <ion-thumbnail slot="start">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
             </ion-thumbnail>
             <ion-label>
-              <h3></h3>
-              <p></p>
-              <p></p>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-segment-content>
       <ion-segment-content id="onHoldGames">
         <ion-list>
-          <ion-item class="onHoldGames" button lines="full" [routerLink]="['/list/games/info']" routerDirection="forward" *ngFor="">
+          <ion-item class="onHoldGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of onHoldGames">
             <ion-thumbnail slot="start">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
             </ion-thumbnail>
             <ion-label>
-              <h3></h3>
-              <p></p>
-              <p></p>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-segment-content>
       <ion-segment-content id="planToPlayGames">
         <ion-list>
-          <ion-item class="planToPlayGames" button lines="full" [routerLink]="['/list/games/info']" routerDirection="forward" *ngFor="">
+          <ion-item class="planToPlayGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of planToPlayGames">
             <ion-thumbnail slot="start">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
             </ion-thumbnail>
             <ion-label>
-              <h3></h3>
-              <p></p>
-              <p></p>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-segment-content>
       <ion-segment-content id="droppedGames">
         <ion-list>
-          <ion-item class="droppedGames" button lines="full" [routerLink]="['/list/games/info']" routerDirection="forward" *ngFor="">
+          <ion-item class="droppedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of droppedGames">
             <ion-thumbnail slot="start">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="">
+              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
             </ion-thumbnail>
             <ion-label>
-              <h3></h3>
-              <p></p>
-              <p></p>
+              <h3>{{ ug.game.title }}</h3>
+              <p>{{ ug.game.type }}</p>
+              <p *ngIf="ug.score != null">{{ ug.score }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
