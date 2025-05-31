@@ -4,12 +4,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Game } from 'src/app/core/interfaces/game';
 import { ApiService } from 'src/app/core/services/api.service';
 import { StorageService } from 'src/app/core/services/storage.service';
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-usergames',
   templateUrl: 'user-games.page.html',
   styleUrls: ['user-games.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule],
 })
 export class UserGamesPage implements OnInit {
   /* Flag for current user playing games' array */

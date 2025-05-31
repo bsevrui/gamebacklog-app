@@ -1,0 +1,28 @@
+ion-item.playingGames, ion-item.completedGames, ion-item.playedGames, ion-item.onHoldGames, ion-item.planToPlayGames, ion-item.droppedGames {
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+
+ion-item.playingGames {
+    border-left-color: #2db038;
+}
+
+ion-item.completedGames {
+    border-left-color: #26448f;
+}
+
+ion-item.playedGames {
+    border-left-color: #335fcc;
+}
+
+ion-item.onHoldGames {
+    border-left-color: #f9d357;
+}
+
+ion-item.planToPlayGames {
+    border-left-color: #c3c3c3;
+}
+
+ion-item.droppedGames {
+    border-left-color: #a12f31;
+}
