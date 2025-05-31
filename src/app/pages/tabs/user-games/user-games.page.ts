@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { User } from 'src/app/core/interfaces/user';
 
 @Component({
   selector: 'app-usergames',
@@ -14,18 +15,9 @@ import { CommonModule } from '@angular/common';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule],
 })
 export class UserGamesPage implements OnInit {
-  /* Flag for current user playing games' array */
-  playingGames: Game[] = [];
-  /* Flag for current user completed games' array */
-  completedGames: Game[] = [];
-  /* Flag for current user played games' array */
-  playedGames: Game[] = [];
-  /* Flag for current user on-hold games' array */
-  onHoldGames: Game[] = [];
-  /* Flag for current user plan-to-play games' array */
-  planToPlayGames: Game[] = [];
-  /* Flag for current user dropped games' array */
-  droppedGames: Game[] = [];
+  currentUser?: User;
+  currentUserId: number = 0;
+  userGames: Game[] = [];
 
   /**
    * Constructor
@@ -37,5 +29,21 @@ export class UserGamesPage implements OnInit {
     private storageService: StorageService
   ) {}
 
-  ngOnInit(): void {}
+  async ngOnInit() {
+    this.currentUser = await this.storageService.getUserData();
+    this.loadData();
+  }
+
+  loadData() {
+    if (this.currentUser) {
+      this.currentUserId = this.currentUser.id;
+      this.apiService.getUser(this.currentUserId).subscribe(
+        (data) => {
+          console.log(data);
+        }
+      );
+    } else {
+      console.error("currentUserId value not loaded");
+    }
+  }
 }
