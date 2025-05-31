@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Game } from '../interfaces/game';
 import { Platform } from '../interfaces/platform';
 import { Genre } from '../interfaces/genre';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -85,5 +86,14 @@ export class ApiService {
    */
   getGenre(genreId: number): Observable<Genre> {
     return this.http.get<Genre>(environment.apiBaseUrl+'genres/'+genreId);
+  }
+
+  /**
+   * Get User
+   * @param userId user's id
+   * @returns selected user's data on db
+   */
+  getUser(userId: number): Observable<User> {
+    return this.http.get<User>(environment.apiBaseUrl+'users/'+userId);
   }
 }
