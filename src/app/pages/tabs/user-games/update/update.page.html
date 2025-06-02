@@ -10,7 +10,7 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item lines="full">
-      <ion-select label="{{ 'SUBTITLE_STATUS' | translate }}" label-placement="floating" value="{{ usergame?.status }}" required="true">
+      <ion-select label="{{ 'SUBTITLE_STATUS' | translate }}" label-placement="floating" value="{{ usergame?.status }}" required="true" [(ngModel)]="status">
         <ion-select-option value="Playing">{{ 'SELECT_STATUS_PLAYING' | translate }}</ion-select-option>
         <ion-select-option value="Completed">{{ 'SELECT_STATUS_COMPLETED' | translate }}</ion-select-option>
         <ion-select-option value="Played">{{ 'SELECT_STATUS_PLAYED' | translate }}</ion-select-option>
@@ -20,7 +20,7 @@
       </ion-select>
     </ion-item>
     <ion-item lines="full">
-      <ion-select label="{{ 'SUBTITLE_SCORE' | translate }}" label-placement="floating" value="{{ usergame?.score }}" required="true">
+      <ion-select label="{{ 'SUBTITLE_SCORE' | translate }}" label-placement="floating" value="{{ usergame?.score }}" [(ngModel)]="score" required="true">
         <ion-select-option value="10">{{ 'SELECT_SCORE_10' | translate }}</ion-select-option>
         <ion-select-option value="9">{{ 'SELECT_SCORE_9' | translate }}</ion-select-option>
         <ion-select-option value="8">{{ 'SELECT_SCORE_8' | translate }}</ion-select-option>
@@ -34,16 +34,26 @@
       </ion-select>
     </ion-item>
     <ion-item lines="full">
-      <ion-select label="{{ 'LABEL_INSTALLED' | translate }}" label-placement="floating" value="{{ usergame?.installed }}" required="true">
+      <ion-select label="{{ 'LABEL_INSTALLED' | translate }}" label-placement="floating" value="{{ usergame?.installed }}" [(ngModel)]="installed" required="true">
         <ion-select-option value="0">{{ 'ACTION_NO' | translate }}</ion-select-option>
         <ion-select-option value="1">{{ 'ACTION_YES' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item lines="full">
-      <ion-select label="{{ 'LABEL_PLATINUM' | translate }}" label-placement="floating" value="{{ usergame?.platinum }}" required="true">
+      <ion-select label="{{ 'LABEL_PLATINUM' | translate }}" label-placement="floating" value="{{ usergame?.platinum }}" [(ngModel)]="platinum" required="true">
         <ion-select-option value="0">{{ 'ACTION_NO' | translate }}</ion-select-option>
         <ion-select-option value="1">{{ 'ACTION_YES' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
+  <div class="ion-padding">
+    <ion-button expand="block" color="success" (click)="update()">
+      <ion-icon slot="start" name="save-sharp"></ion-icon>
+      {{ 'ACTION_SAVE' | translate }}
+    </ion-button>
+    <ion-button expand="block" color="medium" fill="outline" [routerLink]="['/tabs/userGames']" routerDirection="backward">
+      <ion-icon slot="start" name="close"></ion-icon>
+      {{ 'ACTION_CANCEL' | translate }}
+    </ion-button>
+  </div>
 </ion-content>

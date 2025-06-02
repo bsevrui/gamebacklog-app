@@ -1,26 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonList, IonItem, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonList, IonItem, IonSelect, IonSelectOption, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UsersGames } from 'src/app/core/interfaces/usersgames';
+import { addIcons } from 'ionicons';
+import { saveSharp, close } from 'ionicons/icons';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.page.html',
   styleUrls: ['./update.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonList, IonItem, IonSelect, IonSelectOption, TranslateModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonList, IonItem, IonSelect, IonSelectOption, TranslateModule, IonButton, IonIcon, RouterLink]
 })
 export class UpdatePage implements OnInit {
   public usergame?: UsersGames;
+  public status?: string;
+  public score?: number;
+  public installed?: boolean;
+  public platinum?: boolean;
 
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    addIcons({ saveSharp, close });
+  }
 
   async ngOnInit() {
     this.loadData();
@@ -42,6 +50,13 @@ export class UpdatePage implements OnInit {
         }
       );
     }
+  }
+
+  update() {
+    console.log(this.status);
+    console.log(this.score);
+    console.log(this.installed);
+    console.log(this.platinum);
   }
 
   /* ejemplo
