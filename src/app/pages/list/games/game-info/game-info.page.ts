@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonList, IonListHeader, IonItem, IonLabel, IonImg } from '@ionic/angular/standalone';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 import { Game } from 'src/app/core/interfaces/game';
 import { TranslateModule } from '@ngx-translate/core';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-game-info',
@@ -19,6 +18,11 @@ export class GameInfoPage implements OnInit {
   private gameId: number = 0;
   public game?: Game;
 
+  /**
+   * Constructaor
+   * @param activatedRoute Activated Route.
+   * @param apiService API Service.
+   */
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiService: ApiService
