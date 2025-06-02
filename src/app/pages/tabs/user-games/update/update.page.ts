@@ -63,7 +63,9 @@ export class UpdatePage implements OnInit {
       }).subscribe({
         next: (res) => {
           console.log('updated: ', res);
-          this.router.navigate(['/tabs/userGames']);
+          this.router.navigate(['/tabs/userGames']).then(() => {
+            window.location.reload();
+          });
         },
         error: (err) => console.log('error: ', err)
       });
