@@ -15,14 +15,21 @@ import { UsersGames } from 'src/app/core/interfaces/usersgames';
   imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule, IonItemOption, IonItemOptions, IonItemSliding],
 })
 export class UserGamesPage implements OnInit {
+  /* Flaf for curent user data */
   private currentUser?: User;
-  private currentUserId: number = 0;
+  /* Flag for user games' array */
   private userGames?: UsersGames[];
+  /* Flag for playing games' array */
   public playingGames?: UsersGames[];
+  /* Flag for completed games' array */
   public completedGames?: UsersGames[];
+  /* Flaf for played games' array */
   public playedGames?: UsersGames[];
+  /* Flag for on hold games' arayy  */
   public onHoldGames?: UsersGames[];
+  /* Flag for plan to play games' array  */
   public planToPlayGames?: UsersGames[];
+  /* Flag for dropped games' array */
   public droppedGames?: UsersGames[];
 
   /**
@@ -42,8 +49,7 @@ export class UserGamesPage implements OnInit {
 
   loadData() {
     if (this.currentUser) {
-      this.currentUserId = this.currentUser.id;
-      this.apiService.getUser(this.currentUserId).subscribe(
+      this.apiService.getUser(this.currentUser.id).subscribe(
         (data) => {
           this.userGames = data.games;
           console.log(this.userGames);
