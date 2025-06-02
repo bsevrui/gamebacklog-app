@@ -38,17 +38,27 @@
       <ion-segment-content id="allGames">
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLAYING' | translate }}</ion-list-header>
-          <ion-item class="playingGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playingGames">
-            <ion-thumbnail slot="start">
-              <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
-              <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
-            </ion-thumbnail>
-            <ion-label>
-              <h3>{{ ug.game.title }}</h3>
-              <p>{{ ug.game.type }}</p>
-              <p *ngIf="ug.score != null">{{ ug.score }}</p>
-            </ion-label>
-          </ion-item>
+          <ion-item-sliding *ngFor="let ug of playingGames">
+            <ion-item class="playingGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward">
+              <ion-thumbnail slot="start">
+                <img [alt]="ug.game.cover" [src]="ug.game.cover" *ngIf="ug.game.cover != null">
+                <img alt="img not available" src="assets/img/na.png" *ngIf="ug.game.cover == null">
+              </ion-thumbnail>
+              <ion-label>
+                <h3>{{ ug.game.title }}</h3>
+                <p>{{ ug.game.type }}</p>
+                <p *ngIf="ug.score != null">{{ ug.score }}</p>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="warning">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
+              </ion-item-option>
+              <ion-item-option color="danger">
+                <ion-icon slot="icon-only" name="trash-sharp"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
         </ion-list>
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_COMPLETED' | translate }}</ion-list-header>
