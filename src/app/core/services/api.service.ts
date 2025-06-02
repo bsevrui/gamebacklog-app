@@ -6,6 +6,7 @@ import { Game } from '../interfaces/game';
 import { Platform } from '../interfaces/platform';
 import { Genre } from '../interfaces/genre';
 import { User } from '../interfaces/user';
+import { UsersGamesUpdate } from '../interfaces/usersgamesupdate';
 
 @Injectable({
   providedIn: 'root'
@@ -95,5 +96,9 @@ export class ApiService {
    */
   getUser(userId: number): Observable<User> {
     return this.http.get<User>(environment.apiBaseUrl+'users/'+userId);
+  }
+
+  updateUserGame(userId: number, gameId: number, usergame: UsersGamesUpdate) {
+    return this.http.patch(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId, usergame);
   }
 }
