@@ -38,6 +38,7 @@ export class UserGamesPage implements OnInit {
    * Constructor
    * @param apiService API Service.
    * @param storageService Storage Service.
+   * @param router Router.
    */
   constructor(
     private apiService: ApiService,
@@ -52,6 +53,9 @@ export class UserGamesPage implements OnInit {
     this.loadData();
   }
 
+  /**
+   * Loads the user games on db
+   */
   loadData() {
     if (this.currentUser) {
       this.apiService.getUser(this.currentUser.id).subscribe(
@@ -71,6 +75,10 @@ export class UserGamesPage implements OnInit {
     }
   }
 
+  /**
+   * Go to update page
+   * @param gameId the selected game id
+   */
   goToUpdatePage(gameId: number) {
     this.router.navigate(['/tabs/userGames/update', this.currentUser?.id, gameId]);
   }
