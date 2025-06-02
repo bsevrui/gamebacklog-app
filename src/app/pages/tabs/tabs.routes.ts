@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { authGuard } from 'src/app/core/guards/auth.guard';
+import { usergamesRoutes } from './user-games/user-games.route';
 
 export const routes: Routes = [
   {
@@ -19,7 +20,7 @@ export const routes: Routes = [
       {
         path: 'userGames',
         canActivate: [authGuard],
-        loadComponent: () => import('./user-games/user-games.page').then((m) => m.UserGamesPage),
+        children: usergamesRoutes,
       },
       {
         path: '',
@@ -32,5 +33,5 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/tabs/home',
     pathMatch: 'full',
-  },
+  }
 ];
