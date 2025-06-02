@@ -33,7 +33,7 @@ export class UpdatePage implements OnInit {
     addIcons({ saveSharp, close });
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.userId = Number(this.activatedRoute.snapshot.paramMap.get('userId'));
     this.gameId = Number(this.activatedRoute.snapshot.paramMap.get('gameId'));
     this.loadData();
