@@ -27,6 +27,7 @@
     "LABEL_LASTNAME": "Apellidos",
     "LABEL_MEMBER_SINCE": "Miembro desde",
     "LABEL_PASSWORD": "Contraseña",
+    "LABEL_PLATINUM": "Platinado",
     "LABEL_POPULARITY": "Nº de Usuarios",
     "LABEL_PROFILEPICTURE": "Foto de Perfil",
     "LABEL_REPEATPASSWORD": "Confirmar Contraseña",
