@@ -35,7 +35,9 @@
   
   <ion-content [fullscreen]="true">
     <ion-segment-view>
+      <!-- 1st segment (all games) -->
       <ion-segment-content id="allGames">
+        <!-- playing -->
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLAYING' | translate }}</ion-list-header>
           <ion-item-sliding *ngFor="let ug of playingGames">
@@ -60,6 +62,7 @@
             </ion-item-options>
           </ion-item-sliding>
         </ion-list>
+        <!-- completed -->
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_COMPLETED' | translate }}</ion-list-header>
           <ion-item class="completedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of completedGames">
@@ -74,6 +77,7 @@
             </ion-label>
           </ion-item>
         </ion-list>
+        <!-- played -->
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLAYED' | translate }}</ion-list-header>
           <ion-item class="playedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playedGames">
@@ -88,6 +92,7 @@
             </ion-label>
           </ion-item>
         </ion-list>
+        <!-- on hold -->
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_ONHOLD' | translate }}</ion-list-header>
           <ion-item class="onHoldGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of onHoldGames">
@@ -102,6 +107,7 @@
             </ion-label>
           </ion-item>
         </ion-list>
+        <!-- plan to play -->
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_PLANTOPLAY' | translate }}</ion-list-header>
           <ion-item class="planToPlayGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of planToPlayGames">
@@ -116,6 +122,7 @@
             </ion-label>
           </ion-item>
         </ion-list>
+        <!-- dropped -->
         <ion-list>
           <ion-list-header>{{ 'USER_LIST_DROPPED' | translate }}</ion-list-header>
           <ion-item class="droppedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of droppedGames">
@@ -131,6 +138,7 @@
           </ion-item>
         </ion-list>
       </ion-segment-content>
+      <!-- 2nd segment (playing) -->
       <ion-segment-content id="playingGames">
         <ion-list>
           <ion-item class="playingGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playingGames">
@@ -146,6 +154,7 @@
           </ion-item>
         </ion-list>
       </ion-segment-content>
+      <!-- 3rd segment (completed) -->
       <ion-segment-content id="completedGames">
         <ion-list>
           <ion-item class="completedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of completedGames">
@@ -161,6 +170,7 @@
           </ion-item>
         </ion-list>
       </ion-segment-content>
+      <!-- 4th segment (played) -->
       <ion-segment-content id="playedGames">
         <ion-list>
           <ion-item class="playedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of playedGames">
@@ -176,6 +186,7 @@
           </ion-item>
         </ion-list>
       </ion-segment-content>
+      <!-- 5th segment (on hold) -->
       <ion-segment-content id="onHoldGames">
         <ion-list>
           <ion-item class="onHoldGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of onHoldGames">
@@ -191,6 +202,7 @@
           </ion-item>
         </ion-list>
       </ion-segment-content>
+      <!-- 6th segment (plan to play) -->
       <ion-segment-content id="planToPlayGames">
         <ion-list>
           <ion-item class="planToPlayGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of planToPlayGames">
@@ -206,6 +218,7 @@
           </ion-item>
         </ion-list>
       </ion-segment-content>
+      <!-- 7th segment (dropped) -->
       <ion-segment-content id="droppedGames">
         <ion-list>
           <ion-item class="droppedGames" button lines="full" [routerLink]="['/list/games/info', ug.game.id]" routerDirection="forward" *ngFor="let ug of droppedGames">
