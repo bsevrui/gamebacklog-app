@@ -3,7 +3,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton,
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
 import { StorageService } from 'src/app/core/services/storage.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from 'src/app/core/interfaces/user';
 import { UsersGames } from 'src/app/core/interfaces/usersgames';
@@ -41,7 +41,8 @@ export class UserGamesPage implements OnInit {
    */
   constructor(
     private apiService: ApiService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private router: Router
   ) {
     addIcons({ trashSharp, create });
   }
@@ -68,5 +69,9 @@ export class UserGamesPage implements OnInit {
     } else {
       console.error("currentUserId value not loaded");
     }
+  }
+
+  goToUpdatePage(gameId: number) {
+    this.router.navigate(['/tabs/userGames/update', this.currentUser?.id, gameId]);
   }
 }
