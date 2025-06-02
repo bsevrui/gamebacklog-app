@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, IonItemOption, IonItemOptions, IonItemSliding } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, IonItemOption, IonItemOptions, IonItemSliding, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
 import { StorageService } from 'src/app/core/services/storage.service';
@@ -7,12 +7,14 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from 'src/app/core/interfaces/user';
 import { UsersGames } from 'src/app/core/interfaces/usersgames';
+import { addIcons } from 'ionicons';
+import { create, trashSharp } from 'ionicons/icons';
 
 @Component({
   selector: 'app-usergames',
   templateUrl: 'user-games.page.html',
   styleUrls: ['user-games.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule, IonItemOption, IonItemOptions, IonItemSliding],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule, IonItemOption, IonItemOptions, IonItemSliding, IonIcon],
 })
 export class UserGamesPage implements OnInit {
   /* Flaf for curent user data */
@@ -40,7 +42,9 @@ export class UserGamesPage implements OnInit {
   constructor(
     private apiService: ApiService,
     private storageService: StorageService
-  ) {}
+  ) {
+    addIcons({ trashSharp, create });
+  }
 
   async ngOnInit() {
     this.currentUser = await this.storageService.getUserData();
