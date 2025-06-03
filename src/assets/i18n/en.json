@@ -37,7 +37,6 @@
     "PAGE_GENRES": "Genres",
     "PAGE_PLATFORMS": "Platforms",
     "PH_SEARCHBAR": "Search...",
-    "PH_LANGUAGE_SELECT": "System Default",
     "SELECT_SCORE_1": "1 - Appalling",
     "SELECT_SCORE_2": "2 - Horrible",
     "SELECT_SCORE_3": "3 - Very Bad",
@@ -97,8 +96,6 @@
     "USER_LIST_PLANTOPLAY": "Plan to Play",
     "USER_LIST_PLAYED": "Played",
     "USER_LIST_PLAYING": "Playing",
-    "WARNING_DESCRIPTION_BROWSER_NOT_AVAILABLE": "Browser currently not available",
     "WARNING_GENERIC_SUBTITLE": "Something went wrong :/",
-    "WARNING_GENERIC_TITLE": "Warning",
-    "WORKING_ON": "Currently not Implemented"
+    "WARNING_GENERIC_TITLE": "Warning"
 }

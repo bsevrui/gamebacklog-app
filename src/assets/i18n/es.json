@@ -37,7 +37,6 @@
     "PAGE_GENRES": "Géneros",
     "PAGE_PLATFORMS": "Plataformas",
     "PH_SEARCHBAR": "Buscar...",
-    "PH_LANGUAGE_SELECT": "Sistema",
     "SELECT_SCORE_1": "1 - Pésimo",
     "SELECT_SCORE_2": "2 - Horrible",
     "SELECT_SCORE_3": "3 - Muy Malo",
@@ -97,8 +96,6 @@
     "USER_LIST_PLANTOPLAY": "Pendientes",
     "USER_LIST_PLAYED": "Jugados",
     "USER_LIST_PLAYING": "Jugando",
-    "WARNING_DESCRIPTION_BROWSER_NOT_AVAILABLE": "Navegador no disponible actualmente",
     "WARNING_GENERIC_SUBTITLE": "Algo no ha salido bien :(",
-    "WARNING_GENERIC_TITLE": "Aviso",
-    "WORKING_ON": "Función en Desarrollo"
+    "WARNING_GENERIC_TITLE": "Aviso"
 }
