@@ -25,6 +25,12 @@ export class UpdatePage implements OnInit {
   public installed?: boolean;
   public platinum?: boolean;
 
+  /**
+   * Constructor
+   * @param apiService API Service.
+   * @param activatedRoute Activated Route.
+   * @param router Router.
+   */
   constructor(
     private apiService: ApiService,
     private activatedRoute: ActivatedRoute,
