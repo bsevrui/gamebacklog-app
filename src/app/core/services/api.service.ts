@@ -108,4 +108,8 @@ export class ApiService {
   updateUserGame(userId: number, gameId: number, usergame: UsersGamesUpdate) {
     return this.http.patch(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId, usergame);
   }
+
+  deleteUserGame(userId: number, gameId: number) {
+    return this.http.delete(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId);
+  }
 }
