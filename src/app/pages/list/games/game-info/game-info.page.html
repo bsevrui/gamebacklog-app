@@ -14,6 +14,12 @@
     <ion-item lines="full">
       <ion-label class="ion-text-center">{{ game?.title }}</ion-label>
     </ion-item>
+    <ion-item lines="full">
+      <ion-label>{{ 'LABEL_COMMUNITYSCORE' | translate }}: {{ game?.averageScore }}</ion-label>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label>{{ 'LABEL_POPULARITY' | translate }}: {{ game?.popularity }}</ion-label>
+    </ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>{{ 'TITLE_GENRES' | translate }}</ion-list-header>
