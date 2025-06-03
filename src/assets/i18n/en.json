@@ -1,7 +1,7 @@
 {
     "ACTION_CANCEL": "Cancel",
     "ACTION_CHANGE": "Switch",
-    "ACTION_CREATE": "Create Log",
+    "ACTION_CREATE_LOG": "Create Log",
     "ACTION_DELETE_LOG": "Delete Log",
     "ACTION_LOGIN": "Login",
     "ACTION_LOGOUT": "Logout",
