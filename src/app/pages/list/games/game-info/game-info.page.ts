@@ -67,13 +67,12 @@ export class GameInfoPage implements OnInit {
   async getRelationWithCurrentUser() {
     let currentUser: User = await this.storageService.getUserData();
     if (currentUser) {
-      this.apiService.getUserGame(currentUser.id, this.gameId).subscribe({
-        next: (res) => {
-          this.usergame = res;
+      this.apiService.getUserGame(currentUser.id, this.gameId).subscribe(
+        (data) => {
+          this.usergame = data;
           console.log(this.usergame);
-        },
-        error: (err) => console.error('error: ', err)
-      });
+        }
+      );
     } else {
       console.log('no user data can be retrieved, maybe there is no one logged');
     }
