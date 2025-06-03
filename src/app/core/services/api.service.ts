@@ -98,6 +98,13 @@ export class ApiService {
     return this.http.get<User>(environment.apiBaseUrl+'users/'+userId);
   }
 
+  /**
+   * Updates user game relation
+   * @param userId user's id
+   * @param gameId game's id
+   * @param usergame new data to be updated
+   * @returns updated relation
+   */
   updateUserGame(userId: number, gameId: number, usergame: UsersGamesUpdate) {
     return this.http.patch(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId, usergame);
   }
