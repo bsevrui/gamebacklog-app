@@ -1,6 +1,7 @@
 {
     "ACTION_CANCEL": "Cancelar",
     "ACTION_CHANGE": "Cambiar",
+    "ACTION_CREATE_LOG": "Crear Registro",
     "ACTION_DELETE_LOG": "Borrar Registro",
     "ACTION_LOGIN": "Iniciar Sesión",
     "ACTION_LOGOUT": "Cerrar Sesión",
