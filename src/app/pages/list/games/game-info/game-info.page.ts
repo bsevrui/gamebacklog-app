@@ -6,6 +6,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
 import { Game } from 'src/app/core/interfaces/game';
 import { TranslateModule } from '@ngx-translate/core';
+import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
   selector: 'app-game-info',
@@ -22,26 +23,29 @@ export class GameInfoPage implements OnInit {
    * Constructaor
    * @param activatedRoute Activated Route.
    * @param apiService API Service.
+   * @param storageService Storage Service.
    */
   constructor(
     private activatedRoute: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private storageService: StorageService
   ) {}
 
   ngOnInit() {
-    const ID = this.activatedRoute.snapshot.paramMap.get('id');
-    if (ID != null) {
-      this.gameId = parseInt(ID);
-      this.loadData();
-    }
+    this.gameId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.loadGameData();
   }
 
-  loadData() {
-    this.apiService.getGame(this.gameId).subscribe(
-      (data) => {
-        this.game = data;
-        console.log(this.game);
-      }
-    );
+  loadGameData() {
+    if (this.gameId) {
+      this.apiService.getGame(this.gameId).subscribe(
+        (data) => {
+          this.game = data;
+          console.log(this.game);
+        }
+      );
+    } else {
+      console.error('gameId not loaded');
+    }
   }
 }
