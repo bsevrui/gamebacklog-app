@@ -1,13 +1,59 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>add</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ game?.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item lines="full">
+      <ion-select label="{{ 'SUBTITLE_STATUS' | translate }}" label-placement="floating" required="true" [(ngModel)]="status">
+        <ion-select-option value="Playing">{{ 'SELECT_STATUS_PLAYING' | translate }}</ion-select-option>
+        <ion-select-option value="Completed">{{ 'SELECT_STATUS_COMPLETED' | translate }}</ion-select-option>
+        <ion-select-option value="Played">{{ 'SELECT_STATUS_PLAYED' | translate }}</ion-select-option>
+        <ion-select-option value="On-Hold">{{ 'SELECT_STATUS_ONHOLD' | translate }}</ion-select-option>
+        <ion-select-option value="Plan-To-Play">{{ 'SELECT_STATUS_PLANTOPLAY' | translate }}</ion-select-option>
+        <ion-select-option value="Dropped">{{ 'SELECT_STATUS_DROPPED' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-select label="{{ 'SUBTITLE_SCORE' | translate }}" label-placement="floating" [(ngModel)]="score" required="true">
+        <ion-select-option value="10">{{ 'SELECT_SCORE_10' | translate }}</ion-select-option>
+        <ion-select-option value="9">{{ 'SELECT_SCORE_9' | translate }}</ion-select-option>
+        <ion-select-option value="8">{{ 'SELECT_SCORE_8' | translate }}</ion-select-option>
+        <ion-select-option value="7">{{ 'SELECT_SCORE_7' | translate }}</ion-select-option>
+        <ion-select-option value="6">{{ 'SELECT_SCORE_6' | translate }}</ion-select-option>
+        <ion-select-option value="5">{{ 'SELECT_SCORE_5' | translate }}</ion-select-option>
+        <ion-select-option value="4">{{ 'SELECT_SCORE_4' | translate }}</ion-select-option>
+        <ion-select-option value="3">{{ 'SELECT_SCORE_3' | translate }}</ion-select-option>
+        <ion-select-option value="2">{{ 'SELECT_SCORE_2' | translate }}</ion-select-option>
+        <ion-select-option value="1">{{ 'SELECT_SCORE_1' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-select label="{{ 'LABEL_INSTALLED' | translate }}" label-placement="floating" [(ngModel)]="installed" required="true">
+        <ion-select-option value="0">{{ 'ACTION_NO' | translate }}</ion-select-option>
+        <ion-select-option value="1">{{ 'ACTION_YES' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-select label="{{ 'LABEL_PLATINUM' | translate }}" label-placement="floating" [(ngModel)]="platinum" required="true">
+        <ion-select-option value="0">{{ 'ACTION_NO' | translate }}</ion-select-option>
+        <ion-select-option value="1">{{ 'ACTION_YES' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div class="ion-padding">
+    <ion-button expand="block" color="success">
+      <ion-icon slot="start" name="save-sharp"></ion-icon>
+      {{ 'ACTION_SAVE' | translate }}
+    </ion-button>
+    <ion-button expand="block" color="medium" fill="outline" [routerLink]="['/list/games']" routerDirection="backward">
+      <ion-icon slot="start" name="close"></ion-icon>
+      {{ 'ACTION_CANCEL' | translate }}
+    </ion-button>
+  </div>
 </ion-content>
