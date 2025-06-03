@@ -109,6 +109,12 @@ export class ApiService {
     return this.http.patch(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId, usergame);
   }
 
+  /**
+   * Delete user game relation
+   * @param userId user's id
+   * @param gameId game's id
+   * @returns delete result
+   */
   deleteUserGame(userId: number, gameId: number) {
     return this.http.delete(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId);
   }
