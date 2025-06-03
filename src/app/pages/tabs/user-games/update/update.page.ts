@@ -50,6 +50,8 @@ export class UpdatePage implements OnInit {
           }
         }
       );
+    } else {
+      console.error('userId not loaded');
     }
   }
 
