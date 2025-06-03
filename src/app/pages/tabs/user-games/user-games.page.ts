@@ -82,4 +82,18 @@ export class UserGamesPage implements OnInit {
   goToUpdatePage(gameId: number) {
     this.router.navigate(['/tabs/userGames/update', this.currentUser?.id, gameId]);
   }
+
+  delete(gamedId: number) {
+    if (this.currentUser) {
+      this.apiService.deleteUserGame(this.currentUser.id, gamedId).subscribe({
+        next: (res) => {
+          console.log('deleted: ', res);
+          this.router.navigate(['/tabs/userGames']).then(() => {
+            window.location.reload();
+          });
+        },
+        error: (err) => console.error('error: ', err)
+      });
+    }
+  }
 }
