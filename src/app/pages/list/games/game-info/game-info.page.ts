@@ -78,6 +78,13 @@ export class GameInfoPage implements OnInit {
     }
   }
 
+  async goToAddPage(gameId: number) {
+    let currentUser: User = await this.storageService.getUserData();
+    if (currentUser) {
+      this.router.navigate(['/tabs/userGames/add', currentUser.id, gameId]);
+    }
+  }
+
   async goToUpdatePage(gameId: number) {
     let currentUser: User = await this.storageService.getUserData();
     if (currentUser) {
