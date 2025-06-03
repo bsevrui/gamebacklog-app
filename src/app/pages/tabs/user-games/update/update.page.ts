@@ -67,7 +67,7 @@ export class UpdatePage implements OnInit {
             window.location.reload();
           });
         },
-        error: (err) => console.log('error: ', err)
+        error: (err) => console.error('error: ', err)
       });
     }
   }
