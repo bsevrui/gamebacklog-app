@@ -1,7 +1,7 @@
 # GameBacklog App
 
 ## Versionado
-Versión: ```0.1.25.6.3```
+Versión: ```0.1.25.6.4```
 
 ## Descripción
 APP Diseñada para el PFG de DAW, construida en _Ionic 8 (Angular)_.
