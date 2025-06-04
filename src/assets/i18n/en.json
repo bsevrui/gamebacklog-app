@@ -73,5 +73,6 @@
     "USER_LIST_ONHOLD": "On Hold",
     "USER_LIST_PLANTOPLAY": "Plan to Play",
     "USER_LIST_PLAYED": "Played",
-    "USER_LIST_PLAYING": "Playing"
+    "USER_LIST_PLAYING": "Playing",
+    "WARNING_MANDATORY_FIELDS": "Fields marked with * are mandatory"
 }

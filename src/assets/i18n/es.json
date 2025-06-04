@@ -73,5 +73,6 @@
     "USER_LIST_ONHOLD": "En Espera",
     "USER_LIST_PLANTOPLAY": "Pendientes",
     "USER_LIST_PLAYED": "Jugados",
-    "USER_LIST_PLAYING": "Jugando"
+    "USER_LIST_PLAYING": "Jugando",
+    "WARNING_MANDATORY_FIELDS": "Los campos marcados con * son obligatorios"
 }
