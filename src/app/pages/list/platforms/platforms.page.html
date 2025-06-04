@@ -6,18 +6,21 @@
       </ion-buttons>
       <ion-title>{{ 'PAGE_PLATFORMS' | translate }}</ion-title>
     </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar placeholder="" show-clear-button="focus" [debounce]="500" [(ngModel)]="searchQuery" (ionInput)="filterPlatforms()"></ion-searchbar>
+    </ion-toolbar>
   </ion-header>
   
   <ion-content [fullscreen]="true">
     <ion-list>
-      <ion-item button lines="full" [routerLink]="['info', platform.id]" *ngFor="let platform of platforms">
+      <ion-item button lines="full" [routerLink]="['info', platform.id]" *ngFor="let platform of filteredPlatforms">
         <ion-thumbnail slot="start">
           <img [alt]="platform.name" [src]="platform.picture" *ngIf="platform.picture != null">
           <img alt="img not available" src="assets/img/na.png" *ngIf="platform.picture == null">
         </ion-thumbnail>
         <ion-label>
           <h3>{{ platform.name }}</h3>
-          <p class="ion-text-wrap">{{platform.releaseDate }}</p>
+          <p class="ion-text-wrap">{{ platform.releaseDate }}</p>
           <p class="ion-text-wrap" *ngIf="platform.detail != null">{{ platform.detail }}</p>
         </ion-label>
       </ion-item>
