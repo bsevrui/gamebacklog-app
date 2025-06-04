@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonLabel, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonButtons, IonMenuButton, IonList, IonThumbnail, IonItem } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonLabel, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonButtons, IonMenuButton, IonList, IonThumbnail, IonItem, IonRefresher, IonRefresherContent } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { Game } from 'src/app/core/interfaces/game';
@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonLabel, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, TranslateModule, IonButtons, IonMenuButton, CommonModule, IonList, IonThumbnail, IonItem, RouterLink],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonLabel, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, TranslateModule, IonButtons, IonMenuButton, CommonModule, IonList, IonThumbnail, IonItem, RouterLink, IonRefresher, IonRefresherContent],
 })
 export class HomePage implements OnInit {
   /* Flag for recently added games' array */
@@ -28,6 +28,13 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.loadData();
+  }
+
+  doRefresh(event: any) {
+    this.loadData();
+    setTimeout(() => {
+      event.target.complete();
+    }, 1000);
   }
 
   loadData() {
