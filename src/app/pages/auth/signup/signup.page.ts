@@ -8,6 +8,8 @@ import { Router, RouterLink } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { ToastController } from '@ionic/angular';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -43,8 +45,26 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {}
 
+  async presentToast(msg: string) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 2000,
+      position: 'bottom',
+      color: 'warning'
+    });
+    await toast.present();
+  }
+
   signup() {
-    if (this.password == this.repeatPassword) {
+    if (!this.email || !this.username || !this.password || !this.repeatPassword || !this.birthdate) {
+      this.localizationService.translate(['WARNING_MANDATORY_FIELDS']).subscribe(async (values) => {
+        this.presentToast(values['WARNING_MANDATORY_FIELDS']);
+      });
+    } else if (this.password != this.repeatPassword) {
+      this.localizationService.translate(['WARNING_PASSWORD_MISMATCH']).subscribe(async (values) => {
+        this.presentToast(values['WARNING_PASSWORD_MISMATCH']);
+      });
+    } else {
       const userData = {
         email: this.email,
         username: this.username,
@@ -54,26 +74,39 @@ export class SignupPage implements OnInit {
         lastName: this.lastName
       };
 
-      this.authService.signup(userData).subscribe(
-        (response) => {
+      this.authService.signup(userData).pipe(
+        catchError((error) => {
+          this.localizationService.translate(['WARNING_GENERIC', 'WARNING_EMAIL_ALREADYEXIST', 'WARNING_USERNAME_ALREADYEXIST']).subscribe(async (values) => {
+            let errorMsg = values['WARNING_GENERIC'];
+            
+            if (error?.error?.message === 'email already in use') {
+              errorMsg = values['WARNING_EMAIL_ALREADYEXIST'];
+            } else if (error?.error?.message === 'username already in use') {
+              errorMsg = values['WARNING_USERNAME_ALREADYEXIST'];
+            }
+
+            this.presentToast(errorMsg);
+          });
+          return of(null);
+        })
+      ).subscribe((response) => {
+        if (response) {
           console.log('successful signup', response);
           const credentials = {
             email: this.email,
             password: this.password
           };
+
           this.authService.login(credentials).subscribe(
-            async (response) => {
-              console.log(response.accessToken);
-              console.log(response.user);
-              await this.storageService.setUserData(response.accessToken, response.user);
+            async (loginResponse) => {
+              console.log(loginResponse.accessToken);
+              console.log(loginResponse.user);
+              await this.storageService.setUserData(loginResponse.accessToken, loginResponse.user);
               this.router.navigate(['/tabs/userGames']);
             }
           );
-        },
-        (error) => {
-          console.log('signup error', error);
         }
-      );
+      });
     }
   }
 }
