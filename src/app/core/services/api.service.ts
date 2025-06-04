@@ -6,13 +6,18 @@ import { Game } from '../interfaces/game';
 import { Platform } from '../interfaces/platform';
 import { Genre } from '../interfaces/genre';
 import { User } from '../interfaces/user';
-import { UsersGamesUpdate } from '../interfaces/usersgamesupdate';
 import { UsersGames } from '../interfaces/usersgames';
+import { UpdateUserGame } from '../interfaces/update-usergame';
+import { CreateUserGame } from '../interfaces/create-usergame';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  /**
+   * Constructor
+   * @param http Http Client.
+   */
   constructor(private http: HttpClient) {}
 
   /**
@@ -100,17 +105,6 @@ export class ApiService {
   }
 
   /**
-   * Updates user game relation
-   * @param userId user's id
-   * @param gameId game's id
-   * @param usergame new data to be updated
-   * @returns updated relation
-   */
-  updateUserGame(userId: number, gameId: number, usergame: UsersGamesUpdate) {
-    return this.http.patch(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId, usergame);
-  }
-
-  /**
    * Get a specific relation between an user and a game
    * @param userId user's id
    * @param gameId game's id
@@ -118,6 +112,21 @@ export class ApiService {
    */
   getUserGame(userId: number, gameId: number) {
     return this.http.get<UsersGames>(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId);
+  }
+
+  createUserGame(usergame: CreateUserGame): Observable<any> {
+    return this.http.post<any>(environment.apiBaseUrl+'usersgames', usergame);
+  }
+
+  /**
+   * Updates user game relation
+   * @param userId user's id
+   * @param gameId game's id
+   * @param usergame new data to be updated
+   * @returns updated relation
+   */
+  updateUserGame(userId: number, gameId: number, usergame: UpdateUserGame) {
+    return this.http.patch(environment.apiBaseUrl+'usersgames/'+userId+'/'+gameId, usergame);
   }
 
   /**
