@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, IonItemOption, IonItemOptions, IonItemSliding, IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, IonItemOption, IonItemOptions, IonItemSliding, IonIcon, IonRefresher, IonRefresherContent } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
 import { StorageService } from 'src/app/core/services/storage.service';
@@ -14,7 +14,7 @@ import { create, trashSharp } from 'ionicons/icons';
   selector: 'app-usergames',
   templateUrl: 'user-games.page.html',
   styleUrls: ['user-games.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule, IonItemOption, IonItemOptions, IonItemSliding, IonIcon],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, TranslateModule, IonButtons, IonMenuButton, IonSegment, IonSegmentButton, IonSegmentContent, IonSegmentView, IonList, IonListHeader, IonItem, IonThumbnail, IonLabel, RouterLink, CommonModule, IonItemOption, IonItemOptions, IonItemSliding, IonIcon, IonRefresher, IonRefresherContent],
 })
 export class UserGamesPage implements OnInit {
   /* Flaf for curent user data */
@@ -51,6 +51,13 @@ export class UserGamesPage implements OnInit {
   async ngOnInit() {
     this.currentUser = await this.storageService.getUserData();
     this.loadData();
+  }
+
+  doRefresh(event: any) {
+    this.loadData();
+    setTimeout(() => {
+      event.target.complete();
+    }, 1000);
   }
 
   /**

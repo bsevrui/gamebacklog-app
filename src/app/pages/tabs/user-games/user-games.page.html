@@ -34,6 +34,9 @@
   </ion-header>
   
   <ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="chevron-down-circle-outline"></ion-refresher-content>
+    </ion-refresher>
     <ion-segment-view>
       <!-- 1st segment (all games) -->
       <ion-segment-content id="allGames">
