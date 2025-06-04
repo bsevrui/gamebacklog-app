@@ -38,7 +38,7 @@
       <ion-item lines="full">
         <ion-label>{{ 'SUBTITLE_STATUS' | translate }}: {{ usergame.status }}</ion-label>
       </ion-item>
-      <ion-item lines="full">
+      <ion-item lines="full" *ngIf="usergame.score != null">
         <ion-label>{{ 'SUBTITLE_SCORE' | translate }}: {{ usergame.score }}</ion-label>
       </ion-item>
       <div class="ion-padding">
