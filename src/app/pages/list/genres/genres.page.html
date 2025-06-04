@@ -12,6 +12,9 @@
   </ion-header>
   
   <ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="chevron-down-circle-outline"></ion-refresher-content>
+    </ion-refresher>
     <ion-list>
       <ion-item button lines="full" [routerLink]="['info', genre.id]" routerDirection="forward" *ngFor="let genre of filteredGenres">
         <ion-label>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, IonList, IonItem, IonLabel, IonSearchbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonMenuButton, IonList, IonItem, IonLabel, IonSearchbar, IonRefresher, IonRefresherContent } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { Genre } from 'src/app/core/interfaces/genre';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './genres.page.html',
   styleUrls: ['./genres.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonButtons, IonMenuButton, IonList, IonItem, IonLabel, RouterLink, IonSearchbar]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonButtons, IonMenuButton, IonList, IonItem, IonLabel, RouterLink, IonSearchbar, IonRefresher, IonRefresherContent]
 })
 export class GenresPage implements OnInit {
   /* Flag for the genres' array */
@@ -30,6 +30,13 @@ export class GenresPage implements OnInit {
 
   ngOnInit() {
     this.loadData();
+  }
+
+  doRefresh(event: any) {
+    this.loadData();
+    setTimeout(() => {
+      event.target.complete();
+    }, 1000);
   }
 
   /**
