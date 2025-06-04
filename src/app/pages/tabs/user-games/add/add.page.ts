@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonButton, IonList, IonItem, IonSelect, IonSelectOption, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
-import { UsersGames } from 'src/app/core/interfaces/usersgames';
 import { Game } from 'src/app/core/interfaces/game';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -18,14 +17,13 @@ import { close, saveSharp } from 'ionicons/icons';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, TranslateModule, IonButtons, IonBackButton, IonButton, IonList, IonItem, IonSelect, IonSelectOption, IonIcon, RouterLink]
 })
 export class AddPage implements OnInit {
-  private userId?: number;
-  private gameId?: number;
+  private userId: number = 0;
+  private gameId: number = 0;
   public game?: Game;
-  public usergame?: UsersGames;
-  public status?: 'Playing' | 'Completed' | 'Played' | 'On-Hold' | 'Plan-To-Play' | 'Dropped';
+  public status: 'Playing' | 'Completed' | 'Played' | 'On-Hold' | 'Plan-To-Play' | 'Dropped' = 'Completed';
   public score?: number;
-  public installed?: boolean;
-  public platinum?: boolean;
+  public installed: boolean = false;
+  public platinum: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -50,5 +48,28 @@ export class AddPage implements OnInit {
         }
       );
     }
+  }
+
+  createUserGame() {
+    const relation = {
+      userId: this.userId,
+      gameId: this.gameId,
+      status: this.status,
+      score: this.score,
+      installed: this.installed,
+      platinum: this.platinum
+    };
+
+    this.apiService.createUserGame(relation).subscribe({
+      next: (res) => {
+        console.log('relation saved: ', res);
+        this.router.navigate(['/list/games/info', this.gameId]).then(() => {
+          window.location.reload();
+        });
+      },
+      error: (err) => {
+        console.error('error: ', err)
+      }
+    });
   }
 }

@@ -10,7 +10,7 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item lines="full">
-      <ion-select label="{{ 'SUBTITLE_STATUS' | translate }}" label-placement="floating" required="true" [(ngModel)]="status">
+      <ion-select label="{{ 'SUBTITLE_STATUS' | translate }}" label-placement="floating" required="true" value="{{ status }}" [(ngModel)]="status">
         <ion-select-option value="Playing">{{ 'SELECT_STATUS_PLAYING' | translate }}</ion-select-option>
         <ion-select-option value="Completed">{{ 'SELECT_STATUS_COMPLETED' | translate }}</ion-select-option>
         <ion-select-option value="Played">{{ 'SELECT_STATUS_PLAYED' | translate }}</ion-select-option>
@@ -47,7 +47,7 @@
     </ion-item>
   </ion-list>
   <div class="ion-padding">
-    <ion-button expand="block" color="success">
+    <ion-button expand="block" color="success" (click)="createUserGame()">
       <ion-icon slot="start" name="save-sharp"></ion-icon>
       {{ 'ACTION_SAVE' | translate }}
     </ion-button>
