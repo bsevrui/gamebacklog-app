@@ -13,6 +13,8 @@
     "FAIRUSE_DESCRIPTION_2": "Esta aplicación contiene imágenes, nombres, marcas comerciales y de servicio de terceros, las cuales pertenecen a sus respectivos propietarios.",
     "FAIRUSE_DESCRIPTION_3": "Ningún Videojuego o artwork es de mi propiedad. Todos los derechos reservados a sus respectivos dueños.",
     "FAIRUSE_DESCRIPTION_4": "Esta App no intenta infringir ningún tipo de Copyright. Su finalidad es el análisis y comentario.",
+    "INFO_DEFAULTVALUE_INSTALLED&PLATINUM": "Si no seleccionas un valor para los campos instalado y platino se guardaran como no",
+    "INFO_SCORE": "Puedes guardar el juego sin puntuar al no seleccionar ninguna puntuación",
     "LABEL_BIRTHDATE": "Fecha de Nacimiento",
     "LABEL_COMMUNITYSCORE": "Nota Media",
     "LABEL_DEVICEMODEL": "Modelo del Dispotivo",

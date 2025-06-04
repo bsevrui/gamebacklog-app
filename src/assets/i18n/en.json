@@ -13,6 +13,8 @@
     "FAIRUSE_DESCRIPTION_2": "This application contains images, names, trademarks and third-party service marks, which belong to their proprietary owners.",
     "FAIRUSE_DESCRIPTION_3": "I do not own the games or artwork. All Rights reserved to their respective owners.",
     "FAIRUSE_DESCRIPTION_4": "This App is not meant to infringe any of the copyrights. This is for purpose of review & commentary.",
+    "INFO_DEFAULTVALUE_INSTALLED&PLATINUM": "If you leave installed & platinum empy it will save them as no",
+    "INFO_SCORE": "You can mark the videogame as unrated by leaving the score empty",
     "LABEL_BIRTHDATE": "Birth Date",
     "LABEL_COMMUNITYSCORE": "Community's Score",
     "LABEL_DEVICEMODEL": "Device Model",
