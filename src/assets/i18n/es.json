@@ -74,5 +74,7 @@
     "USER_LIST_PLANTOPLAY": "Pendientes",
     "USER_LIST_PLAYED": "Jugados",
     "USER_LIST_PLAYING": "Jugando",
-    "WARNING_MANDATORY_FIELDS": "Los campos marcados con * son obligatorios"
+    "WARNING_GENERIC": "Algo ha salido mal :/",
+    "WARNING_MANDATORY_FIELDS": "Los campos marcados con * son obligatorios",
+    "WARNING_WRONG_CREDENTIALS": "Los credenciales no son correctos"
 }

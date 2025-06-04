@@ -74,5 +74,7 @@
     "USER_LIST_PLANTOPLAY": "Plan to Play",
     "USER_LIST_PLAYED": "Played",
     "USER_LIST_PLAYING": "Playing",
-    "WARNING_MANDATORY_FIELDS": "Fields marked with * are mandatory"
+    "WARNING_GENERIC": "Something went wrong :/",
+    "WARNING_MANDATORY_FIELDS": "Fields marked with * are mandatory",
+    "WARNING_WRONG_CREDENTIALS": "Credentials do not match"
 }
