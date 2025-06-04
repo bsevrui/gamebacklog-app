@@ -79,6 +79,7 @@
     "WARNING_EMAIL_ALREADYEXIST": "El correo electrónico ya se ha registrado",
     "WARNING_GENERIC": "Algo ha salido mal :/",
     "WARNING_MANDATORY_FIELDS": "Los campos marcados con * son obligatorios",
+    "WARNING_PASSWORD_MISMATCH": "Las contraseñas no coinciden",
     "WARNING_USERNAME_ALREADYEXIST": "El nombre de usuario ya se está usando",
     "WARNING_WRONG_CREDENTIALS": "Los credenciales no son correctos"
 }

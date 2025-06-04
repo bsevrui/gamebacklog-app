@@ -79,6 +79,7 @@
     "WARNING_EMAIL_ALREADYEXIST": "Email already in use",
     "WARNING_GENERIC": "Something went wrong :/",
     "WARNING_MANDATORY_FIELDS": "Fields marked with * are mandatory",
+    "WARNING_PASSWORD_MISMATCH": "Passwords do not match",
     "WARNING_USERNAME_ALREADYEXIST": "Username already in use",
     "WARNING_WRONG_CREDENTIALS": "Credentials do not match"
 }
