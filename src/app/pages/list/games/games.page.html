@@ -6,11 +6,14 @@
       </ion-buttons>
       <ion-title>{{ 'PAGE_GAMES' | translate }}</ion-title>
     </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar placeholder="" show-clear-button="focus" [debounce]="500" [(ngModel)]="searchQuery" (ionInput)="filterGames()"></ion-searchbar>
+    </ion-toolbar>
   </ion-header>
   
   <ion-content [fullscreen]="true">
     <ion-list>
-      <ion-item button lines="full" [routerLink]="['info', game.id]" routerDirection="forward" *ngFor="let game of games">
+      <ion-item button lines="full" [routerLink]="['info', game.id]" routerDirection="forward" *ngFor="let game of filteredGames">
         <ion-thumbnail slot="start">
           <img [alt]="game.title" [src]="game.cover" *ngIf="game.cover != null">
           <img alt="img not available" src="assets/img/na.png" *ngIf="game.cover == null">
