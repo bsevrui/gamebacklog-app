@@ -7,7 +7,9 @@ import { RouterLink, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { LocalizationService } from 'src/app/core/services/localization.service';
-import { ToastController } from '@ionic/angular'
+import { ToastController } from '@ionic/angular';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -59,14 +61,27 @@ export class LoginPage implements OnInit {
         password: this.password
       };
 
-      this.authService.login(userData).subscribe(
+      this.authService.login(userData).pipe(
+        catchError(async (error) => {
+          this.localizationService.translate(['WARNING_GENERIC', 'WARNING_WRONG_CREDENTIALS']).subscribe(async (values) => {
+            let errorMsg = values['WARNING_GENERIC'];
+            if (error?.status === 500) {
+              errorMsg = values['WARNING_WRONG_CREDENTIALS'];
+            }
+            await this.presentToast(errorMsg);
+            return of(null);
+          })
+        })
+      ).subscribe(
         async (response) => {
-          console.log(response.accessToken);
-          console.log(response.user);
-          await this.storageService.setUserData(response.accessToken, response.user);
-          this.router.navigate(['/tabs/userGames']);
+          if (response) {
+            console.log(response.accessToken);
+            console.log(response.user);
+            await this.storageService.setUserData(response.accessToken, response.user);
+            this.router.navigate(['/tabs/userGames']);
+          }
         }
-      );
+      )
     }
   }
 }
