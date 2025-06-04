@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonMenuButton, IonButtons, IonInput, IonItem, IonButton } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonMenuButton, IonButtons, IonInput, IonItem, IonButton } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -28,11 +30,15 @@ export class SignupPage implements OnInit {
    * @param authService Auth Service.
    * @param storageService Storage Service.
    * @param router Router.
+   * @param toastCtrl Toast Controller.
+   * @param localizationService Localization Service.
    */
   constructor(
     private authService: AuthService,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private toastCtrl: ToastController,
+    private localizationService: LocalizationService
   ) {}
 
   ngOnInit() {}
