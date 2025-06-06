@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonSplitPane, IonMenu, IonMenuButton, IonContent, IonList, IonListHeader, IonItem, IonIcon, IonLabel, IonRouterLink, IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonItem, IonIcon, IonLabel, IonRouterLink, IonHeader, IonToolbar, IonTitle } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@capacitor/splash-screen';
 import { LocalizationService } from './core/services/localization.service';
 import { DeviceService } from './core/services/device.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle, peopleSharp, logIn, logOut, logInOutline } from 'ionicons/icons';
+import { gameController, gameControllerSharp, pricetag, home, listSharp, person, settingsSharp, informationCircle, peopleSharp, logIn, logInOutline } from 'ionicons/icons';
 import { MenuPage } from './core/interfaces/menu-page';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
