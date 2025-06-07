@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonList, IonItem, IonSelect, IonSelectOption, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { UsersGames } from 'src/app/core/interfaces/usersgames/usersgames';
 import { addIcons } from 'ionicons';
 import { saveSharp, close } from 'ionicons/icons';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonList, IonItem, IonSelect, IonSelectOption, IonButton, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-update',
@@ -28,12 +30,16 @@ export class UpdatePage implements OnInit {
   /**
    * Constructor
    * @param apiService API Service.
+   * @param localizationService Localization Service.
    * @param activatedRoute Activated Route.
+   * @param toastCtrl Toast Controller.
    * @param router Router.
    */
   constructor(
     private apiService: ApiService,
+    private localizationService: LocalizationService,
     private activatedRoute: ActivatedRoute,
+    private toastCtrl: ToastController,
     private router: Router
   ) {
     addIcons({ saveSharp, close });
@@ -61,6 +67,16 @@ export class UpdatePage implements OnInit {
     }
   }
 
+  async presentToast(msg: string) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 1500,
+      position: 'bottom',
+      color: 'success'
+    });
+    await toast.present();
+  }
+
   update() {
     if (this.userId && this.gameId) {
       this.apiService.updateUserGame(this.userId, this.gameId, {
@@ -71,8 +87,11 @@ export class UpdatePage implements OnInit {
       }).subscribe({
         next: (res) => {
           console.log('updated: ', res);
-          this.router.navigate(['/tabs/userGames']).then(() => {
-            window.location.reload();
+          this.localizationService.translate(['TOAST_LOG_UPDATED']).subscribe(async (values) => {
+            this.router.navigate(['/tabs/userGames']).then(() => {
+              window.location.reload();
+            });
+            await this.presentToast(values['TOAST_LOG_UPDATED']);
           });
         },
         error: (err) => console.error('error: ', err)
