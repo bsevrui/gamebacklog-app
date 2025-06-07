@@ -1,4 +1,4 @@
-import { UsersGames } from "./usersgames";
+import { UsersGames } from "./usersgames/usersgames";
 
 export interface User {
     id: number;

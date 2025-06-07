@@ -6,9 +6,9 @@ import { Game } from '../interfaces/game';
 import { Platform } from '../interfaces/platform';
 import { Genre } from '../interfaces/genre';
 import { User } from '../interfaces/user';
-import { UsersGames } from '../interfaces/usersgames';
-import { UpdateUserGame } from '../interfaces/update-usergame';
-import { CreateUserGame } from '../interfaces/create-usergame';
+import { UsersGames } from '../interfaces/usersgames/usersgames';
+import { UpdateUserGame } from '../interfaces/usersgames/update-usergame';
+import { CreateUserGame } from '../interfaces/usersgames/create-usergame';
 
 @Injectable({
   providedIn: 'root'

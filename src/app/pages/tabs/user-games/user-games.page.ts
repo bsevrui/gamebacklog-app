@@ -6,7 +6,7 @@ import { StorageService } from 'src/app/core/services/storage.service';
 import { RouterLink, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from 'src/app/core/interfaces/user';
-import { UsersGames } from 'src/app/core/interfaces/usersgames';
+import { UsersGames } from 'src/app/core/interfaces/usersgames/usersgames';
 import { addIcons } from 'ionicons';
 import { create, trashSharp } from 'ionicons/icons';
 

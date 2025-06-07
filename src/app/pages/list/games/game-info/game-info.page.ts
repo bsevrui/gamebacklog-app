@@ -8,7 +8,7 @@ import { Game } from 'src/app/core/interfaces/game';
 import { TranslateModule } from '@ngx-translate/core';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { User } from 'src/app/core/interfaces/user';
-import { UsersGames } from 'src/app/core/interfaces/usersgames';
+import { UsersGames } from 'src/app/core/interfaces/usersgames/usersgames';
 import { addIcons } from 'ionicons';
 import { cloudDownloadOutline, trophyOutline } from 'ionicons/icons';
 

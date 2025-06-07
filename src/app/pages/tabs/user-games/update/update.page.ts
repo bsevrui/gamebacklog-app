@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton,
 import { TranslateModule } from '@ngx-translate/core';
 import { ApiService } from 'src/app/core/services/api.service';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
-import { UsersGames } from 'src/app/core/interfaces/usersgames';
+import { UsersGames } from 'src/app/core/interfaces/usersgames/usersgames';
 import { addIcons } from 'ionicons';
 import { saveSharp, close } from 'ionicons/icons';
 
