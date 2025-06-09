@@ -39,22 +39,13 @@ export class HomePage implements OnInit {
 
   loadData() {
     this.apiService.getRecentlyAddedGames().subscribe(
-      (data) => {
-        console.log(data);
-        this.recentlyAddedGames = data;
-      }
+      (data) => this.recentlyAddedGames = data
     );
     this.apiService.getTopRatedGames().subscribe(
-      (data) => {
-        console.log(data);
-        this.topRatedGames = data;
-      }
+      (data) => this.topRatedGames = data
     );
     this.apiService.getMostPopular().subscribe(
-      (data) => {
-        console.log(data);
-        this.mostPopularGames = data;
-      }
+      (data) => this.mostPopularGames = data
     );
   }
 }

@@ -44,7 +44,6 @@ export class GameInfoPage implements OnInit {
   async ngOnInit() {
     this.gameId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.authenticated = await this.storageService.isAuthenticated();
-    console.log(this.authenticated);
     this.loadGameData();
     if (this.authenticated) {
       this.getRelationWithCurrentUser();
@@ -56,11 +55,8 @@ export class GameInfoPage implements OnInit {
       this.apiService.getGame(this.gameId).subscribe(
         (data) => {
           this.game = data;
-          console.log(this.game);
         }
       );
-    } else {
-      console.error('gameId not loaded');
     }
   }
 
@@ -70,11 +66,8 @@ export class GameInfoPage implements OnInit {
       this.apiService.getUserGame(currentUser.id, this.gameId).subscribe(
         (data) => {
           this.usergame = data;
-          console.log(this.usergame);
         }
       );
-    } else {
-      console.log('no user data can be retrieved, maybe there is no one logged');
     }
   }
 
@@ -89,8 +82,6 @@ export class GameInfoPage implements OnInit {
     let currentUser: User = await this.storageService.getUserData();
     if (currentUser) {
       this.router.navigate(['/tabs/userGames/update', currentUser.id, gameId]);
-    } else {
-      console.error('could not load current user');
     }
   }
 
@@ -99,7 +90,6 @@ export class GameInfoPage implements OnInit {
     if (curretUser) {
       this.apiService.deleteUserGame(curretUser.id, gameId).subscribe({
         next: (res) => {
-          console.log('deleted: ', res);
           this.router.navigate(['/tabs/userGames']).then(() => {
             window.location.reload();
           });

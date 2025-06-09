@@ -54,10 +54,7 @@ export class AddPage implements OnInit {
   loadGameData() {
     if (this.gameId) {
       this.apiService.getGame(this.gameId).subscribe(
-        (data) => {
-          this.game = data;
-          console.log(this.game);
-        }
+        (data) => this.game = data
       );
     }
   }
@@ -84,7 +81,6 @@ export class AddPage implements OnInit {
 
     this.apiService.createUserGame(relation).subscribe({
       next: (res) => {
-        console.log('relation saved: ', res);
         this.localizationService.translate(['TOAST_LOG_CREATED']).subscribe(async (values) => {
           this.router.navigate(['/list/games/info', this.gameId]).then(() => {
             window.location.reload();

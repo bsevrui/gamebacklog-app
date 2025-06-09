@@ -33,10 +33,7 @@ export class GenreInfoPage implements OnInit {
 
   loadData() {
     this.apiService.getGenre(this.genreId).subscribe(
-      (data) => {
-        console.log(data);
-        this.genre = data;
-      }
+      (data) => this.genre = data
     );
   }
 }

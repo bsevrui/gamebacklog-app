@@ -75,8 +75,6 @@ export class LoginPage implements OnInit {
       ).subscribe(
         async (response) => {
           if (response) {
-            console.log(response.accessToken);
-            console.log(response.user);
             await this.storageService.setUserData(response.accessToken, response.user);
             this.router.navigate(['/tabs/userGames']);
           }

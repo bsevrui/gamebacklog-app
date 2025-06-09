@@ -55,15 +55,11 @@ export class UpdatePage implements OnInit {
     if (this.userId) {
       this.apiService.getUser(this.userId).subscribe(
         (data) => {
-          console.log(data.games);
           if (this.gameId) {
             this.usergame = data.games?.find(usergame => usergame.gameId == this.gameId);
-            console.log(this.usergame);
           }
         }
       );
-    } else {
-      console.error('userId not loaded');
     }
   }
 
@@ -86,7 +82,6 @@ export class UpdatePage implements OnInit {
         platinum: this.platinum
       }).subscribe({
         next: (res) => {
-          console.log('updated: ', res);
           this.localizationService.translate(['TOAST_LOG_UPDATED']).subscribe(async (values) => {
             this.router.navigate(['/tabs/userGames']).then(() => {
               window.location.reload();

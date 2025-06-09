@@ -32,10 +32,7 @@ export class PlatformInfoPage implements OnInit {
 
   loadData() {
     this.apiService.getPlatform(this.platformId).subscribe(
-      (data) => {
-        this.platform = data;
-        console.log(this.platform);
-      }
+      (data) => this.platform = data
     );
   }
 }

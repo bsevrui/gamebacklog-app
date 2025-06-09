@@ -91,7 +91,6 @@ export class SignupPage implements OnInit {
         })
       ).subscribe((response) => {
         if (response) {
-          console.log('successful signup', response);
           const credentials = {
             email: this.email,
             password: this.password
@@ -99,8 +98,6 @@ export class SignupPage implements OnInit {
 
           this.authService.login(credentials).subscribe(
             async (loginResponse) => {
-              console.log(loginResponse.accessToken);
-              console.log(loginResponse.user);
               await this.storageService.setUserData(loginResponse.accessToken, loginResponse.user);
               this.router.navigate(['/tabs/userGames']);
             }

@@ -74,7 +74,6 @@ export class UserGamesPage implements OnInit {
       this.apiService.getUser(this.currentUser.id).subscribe(
         (data) => {
           this.userGames = data.games;
-          console.log(this.userGames);
           this.playingGames = this.userGames?.filter(usergame => usergame.status === 'Playing');
           this.completedGames = this.userGames?.filter(usergame => usergame.status === 'Completed');
           this.playedGames = this.userGames?.filter(usergame => usergame.status === 'Played');
@@ -83,8 +82,6 @@ export class UserGamesPage implements OnInit {
           this.droppedGames = this.userGames?.filter(usergame => usergame.status === 'Dropped');
         }
       );
-    } else {
-      console.error("currentUserId value not loaded");
     }
   }
 
@@ -110,7 +107,6 @@ export class UserGamesPage implements OnInit {
     if (this.currentUser) {
       this.apiService.deleteUserGame(this.currentUser.id, gamedId).subscribe({
         next: (res) => {
-          console.log('deleted: ', res);
           this.localizationService.translate(['TOAST_LOG_DELETED']).subscribe(async (values) => {
             this.router.navigate(['/tabs/userGames']).then(() => {
               window.location.reload();

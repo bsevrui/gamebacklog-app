@@ -31,7 +31,6 @@ export class ProfilePage implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.currentUser = await this.storageService.getUserData();
-    console.log(this.currentUser);
   }
 
   async logOut() {
